@@ -11,11 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^0.22.0
   lottie: ^1.0.1
   provider: ^5.0.0
-  flutter_svg: ^0.22.0
-  cupertino_icons: ^1.0.2
   responsive_builder: ^0.4.1
+  url_launcher: ^6.0.4
 
 dev_dependencies:
   flutter_test:
@@ -48,9 +49,6 @@ flutter:
     - family: Lufga
       fonts:
         - asset: assets/fonts/Lufga-Medium.ttf
-
-
-        
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
