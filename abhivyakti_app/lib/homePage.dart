@@ -15,6 +15,7 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   bool _isTapped = false, _press = false;
   SvgPicture? image1, image2, image3;
+  Image? image4, image5, image6;
 
   late Animation<double>? _animation;
   late AnimationController? _controller;
@@ -25,25 +26,50 @@ class _MyHomePageState extends State<MyHomePage>
 
     _controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1500));
-    _animation = Tween<double>(begin: 0, end: 2 * math.pi).animate(_controller!)
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed)
-          setState(() {
-            _controller!.reset();
+    _animation = Tween<double>(begin: 0, end: 2 * math.pi)
+        .animate(CurvedAnimation(parent: _controller!, curve: Curves.easeInOut))
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed)
+              setState(() {
+                _controller!.reset();
+              });
           });
-      });
 
     image1 = SvgPicture.asset(
       'assets/svg/abhivyakti-text-1.svg',
       color: Color(0xFFE5E5E5),
+      fit: BoxFit.contain,
     );
     image2 = SvgPicture.asset(
       'assets/svg/abhivyakti-text-2.svg',
+      fit: BoxFit.contain,
     );
     image3 = SvgPicture.asset(
       'assets/svg/abhivyakti-text-3.svg',
       fit: BoxFit.contain,
     );
+    image4 = Image.asset(
+      'assets/images/Abhivyakti.png',
+      color: Color(0xFFE5E5E5),
+      fit: BoxFit.contain,
+    );
+    image5 = Image.asset(
+      'assets/images/Abhivyakti-1.png',
+      fit: BoxFit.contain,
+    );
+    image6 = Image.asset(
+      'assets/images/Abhivyakti-2.png',
+      fit: BoxFit.contain,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    precacheImage(image4!.image, context);
+    precacheImage(image5!.image, context);
+    precacheImage(image6!.image, context);
   }
 
   @override
@@ -52,87 +78,83 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       body: ResponsiveBuilder(
         builder: (context, sizeInfo) {
-          return InkWell(
-            onTap: () {
-              setState(() {
-                // _isTapped = true;
-                _isTapped = !_isTapped;
-              });
-            },
-            child: AnimatedBuilder(
-              animation: _animation!,
-              builder: (context, _) {
-                return Transform.rotate(
-                  angle: _animation!.value,
-                  child: Container(
-                    color: _isTapped ? Color(0xFFFF2C2C) : Colors.white,
+          bool p = sizeInfo.isMobile;
+
+          return Container(
+            color: _isTapped ? Color(0xFFFF2C2C) : Colors.white,
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  // _isTapped = true;
+                  _isTapped = !_isTapped;
+                });
+              },
+              child: AnimatedBuilder(
+                animation: _animation!,
+                builder: (context, _) {
+                  bool p = sizeInfo.isDesktop;
+                  return Transform.rotate(
+                    angle: _animation!.value,
                     child: Column(
                       children: [
                         Container(
                           height: size.height * (4 / 8),
-                          child: sizeInfo.isMobile
-                              ? Container(
-                                  child: Center(
-                                      child: Text(
-                                    'Abhivyakti',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Lufga',
-                                      fontSize: 60,
-                                    ),
-                                  )),
-                                )
-                              : Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    AnimatedPositioned(
-                                      duration: Duration(milliseconds: 300),
-                                      bottom: _isTapped ? -32 : 0,
-                                      left: _isTapped ? 28 : 0,
-                                      right: _isTapped ? -28 : 0,
-                                      top: 0,
-                                      child: AnimatedOpacity(
-                                        duration: Duration(milliseconds: 400),
-                                        opacity: _isTapped ? 1 : 0,
-                                        child: Container(
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 40),
-                                          child: image1,
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 0,
-                                      right: 0,
-                                      top: 0,
-                                      bottom: 0,
-                                      child: AnimatedOpacity(
-                                        duration: Duration(microseconds: 300),
-                                        opacity: _isTapped ? 0 : 1,
-                                        child: Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 40),
-                                            child: image2),
-                                      ),
-                                    ),
-                                    AnimatedPositioned(
-                                      duration: Duration(milliseconds: 300),
-                                      top: _isTapped ? -32 : 0,
-                                      left: _isTapped ? -28 : 0,
-                                      right: _isTapped ? 28 : 0,
-                                      bottom: 0,
-                                      child: AnimatedOpacity(
-                                        duration: Duration(milliseconds: 400),
-                                        opacity: _isTapped ? 1 : 0,
-                                        child: Container(
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 40),
-                                          child: image3,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              AnimatedPositioned(
+                                curve: Curves.easeInOut,
+                                duration: Duration(milliseconds: 300),
+                                bottom: _isTapped ? -32 : 0,
+                                left: _isTapped ? 28 : 0,
+                                right: _isTapped ? -28 : 0,
+                                top: 0,
+                                child: AnimatedOpacity(
+                                  curve: Curves.easeInOut,
+                                  duration: Duration(milliseconds: 400),
+                                  opacity: _isTapped ? 1 : 0,
+                                  child: Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 40),
+                                    child: p ? image4 : image1,
+                                  ),
                                 ),
+                              ),
+                              Positioned(
+                                left: 0,
+                                right: 0,
+                                top: 0,
+                                bottom: 0,
+                                child: AnimatedOpacity(
+                                  curve: Curves.easeInOut,
+                                  duration: Duration(microseconds: 300),
+                                  opacity: _isTapped ? 0 : 1,
+                                  child: Container(
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 40),
+                                      child: p ? image5 : image2),
+                                ),
+                              ),
+                              AnimatedPositioned(
+                                curve: Curves.easeInOut,
+                                duration: Duration(milliseconds: 300),
+                                top: _isTapped ? -32 : 0,
+                                left: _isTapped ? -28 : 0,
+                                right: _isTapped ? 28 : 0,
+                                bottom: 0,
+                                child: AnimatedOpacity(
+                                  curve: Curves.easeInOut,
+                                  duration: Duration(milliseconds: 400),
+                                  opacity: _isTapped ? 1 : 0,
+                                  child: Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 40),
+                                    child: p ? image6 : image3,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         WIP(
                           sizeInfo: sizeInfo,
@@ -168,9 +190,9 @@ class _MyHomePageState extends State<MyHomePage>
                         )
                       ],
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           );
         },
