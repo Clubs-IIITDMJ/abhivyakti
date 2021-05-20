@@ -28,87 +28,86 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isTapped = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isTapped ? Color(0xFFFF2C2C) : Colors.white,
       body: ResponsiveBuilder(
         builder: (context, sizeInfo) {
-          return Column(
-            children: [
-              Expanded(
-                flex: 4,
-                child: Center(
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        bottom: -32,
-                        left: 28,
-                        right: -28,
-                        child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 40),
-                          child: SvgPicture.asset(
-                            'assets/svg/abhivyakti-text-1.svg',
-                            fit: BoxFit.contain,
-                            color: Color(0xFFE5E5E5),
+          return InkWell(
+            onTap: () {
+              setState(() {
+                // isTapped = true;
+                isTapped = !isTapped;
+              });
+            },
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        AnimatedPositioned(
+                          duration: Duration(milliseconds: 300),
+                          bottom: isTapped ? -32 : 0,
+                          left: isTapped ? 28 : 0,
+                          right: isTapped ? -28 : 0,
+                          child: AnimatedOpacity(
+                            duration: Duration(milliseconds: 400),
+                            opacity: isTapped ? 1 : 0,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 40),
+                              child: SvgPicture.asset(
+                                'assets/svg/abhivyakti-text-1.svg',
+                                fit: BoxFit.contain,
+                                color: Color(0xFFE5E5E5),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 40),
-                        child: SvgPicture.asset(
-                          'assets/svg/abhivyakti-text-2.svg',
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      Positioned(
-                        top: -32,
-                        left: -28,
-                        right: 28,
-                        child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 40),
-                          child: SvgPicture.asset(
-                            'assets/svg/abhivyakti-text-3.svg',
-                            fit: BoxFit.contain,
+                        AnimatedOpacity(
+                          duration: Duration(microseconds: 300),
+                          opacity: isTapped ? 0 : 1,
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 40),
+                            child: SvgPicture.asset(
+                              'assets/svg/abhivyakti-text-2.svg',
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Text(
-                    'Website currently under construction',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Lufga',
-                      fontSize:
-                          sizeInfo.deviceScreenType == DeviceScreenType.mobile
-                              ? 20
-                              : 30,
+                        AnimatedPositioned(
+                          duration: Duration(milliseconds: 300),
+                          top: isTapped ? -32 : 0,
+                          left: isTapped ? -28 : 0,
+                          right: isTapped ? 28 : 0,
+                          child: AnimatedOpacity(
+                            duration: Duration(milliseconds: 400),
+                            opacity: isTapped ? 1 : 0,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 40),
+                              child: SvgPicture.asset(
+                                'assets/svg/abhivyakti-text-3.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () async {
-                      if (await canLaunch(
-                          'https://www.instagram.com/abhivyakti_iiitdmj/'))
-                        await launch(
-                            'https://www.instagram.com/abhivyakti_iiitdmj/');
-                    },
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    alignment: Alignment.center,
                     child: Text(
-                      'INSTAGRAM',
+                      'Website currently under construction',
                       style: TextStyle(
-                        color: Color(0xFFFF2C2C),
-                        fontWeight: FontWeight.w400,
+                        color: isTapped ? Colors.white : Colors.black,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'Lufga',
                         fontSize:
                             sizeInfo.deviceScreenType == DeviceScreenType.mobile
@@ -118,8 +117,35 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-              )
-            ],
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: () async {
+                        if (await canLaunch(
+                            'https://www.instagram.com/abhivyakti_iiitdmj/'))
+                          await launch(
+                              'https://www.instagram.com/abhivyakti_iiitdmj/');
+                      },
+                      child: Text(
+                        'INSTAGRAM',
+                        style: TextStyle(
+                          color: isTapped ? Colors.white : Color(0xFFFF2C2C),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Lufga',
+                          fontSize: sizeInfo.deviceScreenType ==
+                                  DeviceScreenType.mobile
+                              ? 20
+                              : 30,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           );
         },
       ),
