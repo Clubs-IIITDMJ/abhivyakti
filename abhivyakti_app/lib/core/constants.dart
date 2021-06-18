@@ -10,4 +10,4 @@ TextStyle kBody = TextStyle(
   fontWeight: FontWeight.w300,
 );
 
-Color kBrandColor = Color(0XFFFF2C2C);
+Color kRed = Color(0XFFFF2C2C);

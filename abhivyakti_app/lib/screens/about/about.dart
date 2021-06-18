@@ -32,7 +32,7 @@ class About extends StatelessWidget {
               children: [
                 TextSpan(
                   text: "Abhivyakti- The Arts and Crafts club ",
-                  style: kBody.copyWith(color: kBrandColor),
+                  style: kBody.copyWith(color: kRed),
                 ),
                 TextSpan(
                   text:

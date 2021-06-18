@@ -18,15 +18,12 @@ class _RootState extends State<Root> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: SingleChildScrollView(
+        child: ListView(
           controller: _controller,
-          child: Stack(
-            children: [
-              // SideBar(),
-              Home(),
-              About(),
-            ],
-          ),
+          children: [
+            Home(),
+            About(),
+          ],
         ),
       ),
     );
