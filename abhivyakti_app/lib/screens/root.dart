@@ -1,7 +1,10 @@
 import 'package:abhivyakti_app/screens/about/about.dart';
+import 'package:abhivyakti_app/screens/art/art.dart';
+import 'package:abhivyakti_app/screens/gallery/gallery.dart';
+import 'package:abhivyakti_app/screens/home/bottombar.dart';
+import 'package:abhivyakti_app/screens/new/news.dart';
+import 'package:abhivyakti_app/screens/team/team.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:abhivyakti_app/screens/home/home.dart';
 import 'package:abhivyakti_app/screens/home/sidebar.dart';
 
@@ -23,6 +26,12 @@ class _RootState extends State<Root> {
           children: [
             Home(),
             About(),
+            Gallery(),
+            Art(),
+            News(),
+            Team(),
+            Commitee(),
+            BottomBar(),
           ],
         ),
       ),

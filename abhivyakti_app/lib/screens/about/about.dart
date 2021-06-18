@@ -11,7 +11,6 @@ class About extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.only(left: 150, right: 150, top: 50),
-      height: displayHeight(context),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,3 +1,4 @@
+import 'package:abhivyakti_app/core/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,27 +38,19 @@ class SideBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 62,
-                  height: 53,
-                  child: Icon(Icons.camera),
+                  child: SvgPicture.asset(IconsData.rollAsset),
                 ),
                 SizedBox(height: 40),
                 Container(
-                  width: 62,
-                  height: 53,
-                  child: Icon(Icons.camera),
+                  child: SvgPicture.asset(IconsData.galleryAsset),
                 ),
                 SizedBox(height: 40),
                 Container(
-                  width: 62,
-                  height: 53,
-                  child: Icon(Icons.camera),
+                  child: SvgPicture.asset(IconsData.instaAsset),
                 ),
                 SizedBox(height: 40),
                 Container(
-                  width: 62,
-                  height: 53,
-                  child: Icon(Icons.camera),
+                  child: SvgPicture.asset(IconsData.mailAsset),
                 ),
               ],
             ),
