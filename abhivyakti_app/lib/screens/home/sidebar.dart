@@ -31,7 +31,7 @@ class SideBar extends StatelessWidget {
             width: 62,
             height: 53,
             margin: EdgeInsets.all(40),
-            child: SvgPicture.asset('assets/svg/abhivyakti.svg'),
+            child: Image.asset('assets/images/logo1.png'),
           ),
           Expanded(
             child: Column(
@@ -40,15 +40,15 @@ class SideBar extends StatelessWidget {
                 Container(
                   child: SvgPicture.asset(IconsData.rollAsset),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 105),
                 Container(
                   child: SvgPicture.asset(IconsData.galleryAsset),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 105),
                 Container(
                   child: SvgPicture.asset(IconsData.instaAsset),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 105),
                 Container(
                   child: SvgPicture.asset(IconsData.mailAsset),
                 ),

@@ -17,6 +17,16 @@ class Root extends StatefulWidget {
 
 class _RootState extends State<Root> {
   ScrollController _controller = ScrollController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller.addListener(() {
+      print(_controller.offset);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +34,7 @@ class _RootState extends State<Root> {
         child: ListView(
           controller: _controller,
           children: [
-            Home(),
+            Home(scrollController: _controller),
             About(),
             Gallery(),
             Art(),

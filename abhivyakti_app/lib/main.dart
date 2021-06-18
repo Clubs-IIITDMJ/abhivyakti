@@ -1,27 +1,7 @@
 import 'package:abhivyakti_app/screens/root.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:flutter_svg/svg.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // Future.wait([
-  //   precachePicture(
-  //     ExactAssetPicture(
-  //         SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-1.svg'),
-  //     null,
-  //   ),
-  //   precachePicture(
-  //     ExactAssetPicture(
-  //         SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-2.svg'),
-  //     null,
-  //   ),
-  //   precachePicture(
-  //     ExactAssetPicture(
-  //         SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-3.svg'),
-  //     null,
-  //   ),
-  // ]);
   runApp(MyApp());
 }
 
