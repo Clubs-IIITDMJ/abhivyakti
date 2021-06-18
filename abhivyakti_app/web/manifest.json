@@ -1,11 +1,11 @@
 {
-    "name": "Abhivyakti App",
+    "name": "Abhivyakti",
     "short_name": "Abhivyakti",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
-    "description": "Abhivyakti - The Arts Club",
+    "description": "Abhivyakti - The Arts and Crafts Club",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
