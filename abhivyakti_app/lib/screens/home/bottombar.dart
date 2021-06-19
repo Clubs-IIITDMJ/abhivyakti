@@ -108,7 +108,7 @@ class _BottomBarState extends State<BottomBar> {
                           ? 8
                           : 30),
               Text(
-                'abhivyakti.iiitdmj.ac.in',
+                'abhivyakti@iiitdmj.ac.in',
                 style: TextStyle(
                     fontSize: type == 2
                         ? 10

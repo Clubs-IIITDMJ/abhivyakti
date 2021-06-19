@@ -1,7 +1,93 @@
 import 'package:abhivyakti_app/screens/root.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Future.wait([
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-1.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-2.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/images/logo1.png'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/art/abhivyakti.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/svg/about_doodle.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/svg/art_doodle.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/balloon.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/images/bottom_doodle.png'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/art/drafts.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/svg/gallery-icon.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/grass.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/iiit.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/images/instagram.png'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/art/leaf.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo-big.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo2.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/roll.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoder, 'assets/images/team_doodle.png'),
+      null,
+    ),
+  ]);
+
   runApp(MyApp());
 }
 

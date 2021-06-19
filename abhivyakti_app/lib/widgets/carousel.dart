@@ -39,7 +39,7 @@ class _CarouselState extends State<Carousel> {
         aspectRatio: widget.aspectRatio ?? 1,
         viewportFraction: 0.6,
         initialPage: 2,
-        enableInfiniteScroll: true,
+        enableInfiniteScroll: false,
         reverse: false,
         autoPlay: false,
         autoPlayInterval: Duration(seconds: 3),

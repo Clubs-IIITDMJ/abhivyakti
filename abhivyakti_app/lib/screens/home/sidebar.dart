@@ -71,8 +71,16 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 105),
-                    Container(
-                      child: SvgPicture.asset(IconsData.mailAsset),
+                    InkWell(
+                      onTap: () async {
+                        // if (await canLaunch('abhivyakti@iiitdmj.ac.in')) {
+                        launch(
+                            'https://mail.google.com/mail/?view=cm&fs=1&to=abhivyakti@iiitdmj.ac.in');
+                        // }
+                      },
+                      child: Container(
+                        child: SvgPicture.asset(IconsData.mailAsset),
+                      ),
                     ),
                   ],
                 ),
