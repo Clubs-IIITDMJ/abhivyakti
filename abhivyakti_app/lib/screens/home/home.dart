@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SideBar(),
+        SideBar(scrollController: widget.scrollController),
         Container(
           margin: EdgeInsets.only(left: displayWidth(context) * 0.13),
           height: displayHeight(context),

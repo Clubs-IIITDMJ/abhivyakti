@@ -1,6 +1,7 @@
 import 'package:abhivyakti_app/core/constants.dart';
 import 'package:abhivyakti_app/core/icons.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({
@@ -37,19 +38,40 @@ class BottomBar extends StatelessWidget {
                 style: TextStyle(fontSize: 30),
               ),
               Spacer(),
-              Text(
-                'Instagram',
-                style: TextStyle(fontSize: 24, color: kRed2),
+              GestureDetector(
+                onTap: () async {
+                  if (await canLaunch(
+                      'https://www.instagram.com/abhivyakti_iiitdmj/?hl=en'))
+                    launch(
+                        'https://www.instagram.com/abhivyakti_iiitdmj/?hl=en');
+                },
+                child: Text(
+                  'Instagram',
+                  style: TextStyle(fontSize: 24, color: kRed2),
+                ),
               ),
               SizedBox(width: 40),
-              Text(
-                'Discord',
-                style: TextStyle(fontSize: 24, color: kBlue),
+              GestureDetector(
+                onTap: () async {
+                  if (await canLaunch('https://discord.gg/N6tfdvg5'))
+                    launch('https://discord.gg/N6tfdvg5');
+                },
+                child: Text(
+                  'Discord',
+                  style: TextStyle(fontSize: 24, color: kBlue),
+                ),
               ),
               SizedBox(width: 40),
-              Text(
-                'Facebook',
-                style: TextStyle(fontSize: 24, color: kBlue2),
+              GestureDetector(
+                onTap: () async {
+                  if (await canLaunch(
+                      'https://www.facebook.com/abhivyakti.iiit/'))
+                    launch('https://www.facebook.com/abhivyakti.iiit/');
+                },
+                child: Text(
+                  'Facebook',
+                  style: TextStyle(fontSize: 24, color: kBlue2),
+                ),
               ),
             ],
           ),

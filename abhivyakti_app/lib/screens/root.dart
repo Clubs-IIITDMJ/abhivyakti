@@ -22,9 +22,9 @@ class _RootState extends State<Root> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller.addListener(() {
-      print(_controller.offset);
-    });
+    // _controller.addListener(() {
+    //   print(_controller.offset);
+    // });
   }
 
   @override
@@ -34,11 +34,11 @@ class _RootState extends State<Root> {
         child: ListView(
           controller: _controller,
           children: [
-            Home(scrollController: _controller),
-            About(),
-            Gallery(),
-            Art(),
-            News(),
+            // Home(scrollController: _controller),
+            // About(),
+            // Gallery(),
+            // Art(),
+            // News(),
             Team(),
             Commitee(),
             BottomBar(),

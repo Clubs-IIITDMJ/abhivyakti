@@ -44,61 +44,55 @@ class Team extends StatelessWidget {
 class Commitee extends StatelessWidget {
   const Commitee({Key? key}) : super(key: key);
 
-  Widget contactTile(String name, String id) => Row(
-        children: [
-          Text(
-            '$name',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
-          ),
-          SizedBox(width: 30),
-          Text(
-            '$id',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
-          )
-        ],
+  Widget nameText(String name) => Text(
+        '$name',
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
       );
-
+  Widget idText(String id) => Text(
+        '$id',
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
+      );
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 150, right: 150, top: 50, bottom: 150),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Row(
         children: [
-          Text(
-            'Office Commitee',
-            style: kHeading,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              nameText('Abhijay Thachery'),
+              nameText('Anoop Jacob'),
+              nameText('Madhura Kulkarni'),
+            ],
           ),
-          SizedBox(height: 100),
-          Center(
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    contactTile('Abhijay Thachery  ', '2018501@iiitdmj.ac.in'),
-                    SizedBox(width: 30),
-                    contactTile(
-                        'Anoop Jacob         ', '2018507@iiitdmj.ac.in'),
-                    SizedBox(width: 30),
-                    contactTile('Madhura Kulkarni ', '2018515@iiitdmj.ac.in'),
-                  ],
-                ),
-                SizedBox(width: 230),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    contactTile('Tanishi Gola', '2019523@iiitdmj.ac.in'),
-                    SizedBox(width: 30),
-                    contactTile('Vishnu R      ', '2019524@iiitdmj.ac.in'),
-                    SizedBox(width: 30),
-                    contactTile('Ruchira B     ', '2019513@iiitdmj.ac.in'),
-                  ],
-                ),
-              ],
-            ),
-          )
+          SizedBox(width: 30),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              idText('2018501@iiitdmj.ac.in'),
+              idText('2018507@iiitdmj.ac.in'),
+              idText('2018515@iiitdmj.ac.in'),
+            ],
+          ),
+          Expanded(child: SizedBox()),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              nameText('Tanishi Gola'),
+              nameText('Vishnu R'),
+              nameText('Ruchira B'),
+            ],
+          ),
+          SizedBox(width: 30),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              idText('2019523@iiitdmj.ac.in'),
+              idText('2019524@iiitdmj.ac.in'),
+              idText('2019513@iiitdmj.ac.in'),
+            ],
+          ),
         ],
       ),
     );

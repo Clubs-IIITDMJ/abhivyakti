@@ -2,10 +2,13 @@ import 'package:abhivyakti_app/core/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SideBar extends StatelessWidget {
+  final ScrollController? scrollController;
   const SideBar({
     Key? key,
+    this.scrollController,
   }) : super(key: key);
 
   @override
@@ -41,16 +44,37 @@ class SideBar extends StatelessWidget {
                   child: SvgPicture.asset(IconsData.rollAsset),
                 ),
                 SizedBox(height: 105),
-                Container(
-                  child: SvgPicture.asset(IconsData.galleryAsset),
+                InkWell(
+                  onTap: () {
+                    scrollController!.animateTo(1467,
+                        duration: Duration(milliseconds: 800),
+                        curve: Curves.ease);
+                  },
+                  child: Container(
+                    child: SvgPicture.asset(IconsData.galleryAsset),
+                  ),
                 ),
                 SizedBox(height: 105),
-                Container(
-                  child: SvgPicture.asset(IconsData.instaAsset),
+                InkWell(
+                  onTap: () async {
+                    if (await canLaunch(
+                        'https://www.instagram.com/abhivyakti_iiitdmj')) {
+                      launch('https://www.instagram.com/abhivyakti_iiitdmj');
+                    }
+                  },
+                  child: Container(
+                    child: SvgPicture.asset(IconsData.instaAsset),
+                  ),
                 ),
                 SizedBox(height: 105),
-                Container(
-                  child: SvgPicture.asset(IconsData.mailAsset),
+                InkWell(
+                  onTap: () async {
+                    // if (await canLaunch('abhivyakti.iiitdmj.ac.in'))
+                    launch('abhivyakti.iiitdmj.ac.in');
+                  },
+                  child: Container(
+                    child: SvgPicture.asset(IconsData.mailAsset),
+                  ),
                 ),
               ],
             ),
