@@ -41,7 +41,7 @@ class _CarouselState extends State<Carousel> {
         initialPage: 2,
         enableInfiniteScroll: true,
         reverse: false,
-        autoPlay: true,
+        autoPlay: false,
         autoPlayInterval: Duration(seconds: 3),
         autoPlayAnimationDuration: Duration(milliseconds: 800),
         autoPlayCurve: Curves.fastOutSlowIn,

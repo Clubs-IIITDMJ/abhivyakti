@@ -4,6 +4,7 @@ import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:abhivyakti_app/widgets/carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 List _images = [
   AssetImage('assets/art/1.png'),
@@ -35,47 +36,97 @@ List _images = [
   AssetImage('assets/art/27.jpeg'),
 ];
 
-class Art extends StatelessWidget {
+class Art extends StatefulWidget {
   const Art({Key? key}) : super(key: key);
 
   @override
+  _ArtState createState() => _ArtState();
+}
+
+class _ArtState extends State<Art> {
+  int type = 0;
+  double _top = 0, _left = 0, _right = 0, _height = 0, _height1 = 0;
+  double _h = 0, _w = 0;
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 150, right: 150, top: 50),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              IconsData.artDoodle,
-              Expanded(
-                child: Column(
-                  children: [
-                    Text(
-                      'ART',
-                      style: kTitle,
-                    ),
-                    SizedBox(height: 40),
-                    Text(
-                      'Artworks from the members of the club.',
-                      style: kBody,
-                    ),
-                  ],
+    return ResponsiveBuilder(builder: (context, size) {
+      if (size.isMobile) {
+        type = 2;
+        _top = 10;
+        _height = 10;
+        _height1 = 20;
+        _left = 30;
+        _right = 30;
+        _w = 30;
+        _h = 50;
+      } else if (size.isTablet) {
+        type = 1;
+        _top = 25;
+        _height = 15;
+        _height1 = 40;
+        _left = 75;
+        _right = 75;
+        _w = 47;
+        _h = 78;
+      } else {
+        type = 0;
+        _top = 50;
+        _height = 25;
+        _height1 = 100;
+        _left = 150;
+        _right = 150;
+        _w = 95;
+        _h = 120;
+      }
+      return Container(
+        padding: EdgeInsets.only(left: _left, right: _right, top: _top),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: _h,
+                  width: _w,
+                  child: IconsData.artDoodle,
                 ),
-              )
-            ],
-          ),
-          SizedBox(height: 100),
-          Container(
-            child: Carousel(
-              height: 540,
-              aspectRatio: 0.5,
-              images: _images,
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text(
+                        'ART',
+                        style: type == 2
+                            ? kTitleMobile
+                            : type == 1
+                                ? kTitleTablet
+                                : kTitle,
+                      ),
+                      SizedBox(height: _height),
+                      Text(
+                        'Artworks from the members of the club.',
+                        style: type == 2
+                            ? kBodyMobile
+                            : type == 1
+                                ? kBodyTablet
+                                : kBody,
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+            SizedBox(height: _height1),
+            Container(
+              child: Carousel(
+                height: type == 0 ? 540 : 250,
+                aspectRatio: 1,
+                images: _images,
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

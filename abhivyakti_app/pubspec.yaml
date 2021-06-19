@@ -11,12 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  carousel_slider: ^3.0.0
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
   lottie: ^1.0.1
   provider: ^5.0.0
+  responsive_builder: ^0.4.1
   url_launcher: ^6.0.4
-  carousel_slider: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -38,7 +39,6 @@ flutter:
     - assets/images/
     - assets/gallery/
     - assets/art/
-
     # - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
