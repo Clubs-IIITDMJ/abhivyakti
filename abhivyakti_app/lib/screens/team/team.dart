@@ -168,7 +168,9 @@ class _CommiteeState extends State<Commitee> {
         '$name',
         style: TextStyle(
           fontSize: type == 0
-              ? 22
+              ? displayWidth(context) < 1008
+                  ? 18
+                  : 22
               : type == 1
                   ? displayWidth(context) < 688
                       ? 12
@@ -183,7 +185,9 @@ class _CommiteeState extends State<Commitee> {
         '$id',
         style: TextStyle(
           fontSize: type == 0
-              ? 22
+              ? displayWidth(context) < 1008
+                  ? 18
+                  : 22
               : type == 1
                   ? displayWidth(context) < 688
                       ? 12
@@ -211,7 +215,7 @@ class _CommiteeState extends State<Commitee> {
           _width = 15;
           _height = 40;
           _left = 90;
-          _right = 90;
+          _right = 60;
           _top = 25;
           _bottom = 40;
         } else {
@@ -219,7 +223,7 @@ class _CommiteeState extends State<Commitee> {
           _width = 25;
           _height = 100;
           _left = 100;
-          _right = 100;
+          _right = 80;
           _top = 50;
           _bottom = 150;
         }
@@ -244,7 +248,9 @@ class _CommiteeState extends State<Commitee> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               nameText('Abhijay Thachery'),
+                              SizedBox(height: 30),
                               nameText('Anoop Jacob'),
+                              SizedBox(height: 30),
                               nameText('Madhura Kulkarni'),
                             ],
                           ),
@@ -253,7 +259,9 @@ class _CommiteeState extends State<Commitee> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               idText('2018501@iiitdmj.ac.in'),
+                              SizedBox(height: 30),
                               idText('2018507@iiitdmj.ac.in'),
+                              SizedBox(height: 30),
                               idText('2018515@iiitdmj.ac.in'),
                             ],
                           ),
@@ -262,7 +270,9 @@ class _CommiteeState extends State<Commitee> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               nameText('Tanishi Gola'),
+                              SizedBox(height: 30),
                               nameText('Vishnu R'),
+                              SizedBox(height: 30),
                               nameText('Ruchira B'),
                             ],
                           ),
@@ -271,7 +281,9 @@ class _CommiteeState extends State<Commitee> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               idText('2019523@iiitdmj.ac.in'),
+                              SizedBox(height: 30),
                               idText('2019524@iiitdmj.ac.in'),
+                              SizedBox(height: 30),
                               idText('2019513@iiitdmj.ac.in'),
                             ],
                           ),
@@ -284,10 +296,15 @@ class _CommiteeState extends State<Commitee> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               nameText('Abhijay Thachery'),
+                              SizedBox(height: 10),
                               nameText('Anoop Jacob'),
+                              SizedBox(height: 10),
                               nameText('Madhura Kulkarni'),
+                              SizedBox(height: 10),
                               nameText('Tanishi Gola'),
+                              SizedBox(height: 10),
                               nameText('Vishnu R'),
+                              SizedBox(height: 10),
                               nameText('Ruchira B'),
                             ],
                           ),
@@ -296,10 +313,15 @@ class _CommiteeState extends State<Commitee> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               idText('2018501@iiitdmj.ac.in'),
+                              SizedBox(height: 10),
                               idText('2018507@iiitdmj.ac.in'),
+                              SizedBox(height: 10),
                               idText('2018515@iiitdmj.ac.in'),
+                              SizedBox(height: 10),
                               idText('2019523@iiitdmj.ac.in'),
+                              SizedBox(height: 10),
                               idText('2019524@iiitdmj.ac.in'),
+                              SizedBox(height: 10),
                               idText('2019513@iiitdmj.ac.in'),
                             ],
                           ),
