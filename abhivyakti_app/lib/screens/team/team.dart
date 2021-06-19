@@ -91,9 +91,65 @@ class _TeamState extends State<Team> {
                 ],
               ),
               SizedBox(height: _height1),
+              TeamMembers(type: type),
+              SizedBox(height: _height1),
             ]),
       );
     });
+  }
+}
+
+class TeamMembers extends StatelessWidget {
+  final int? type;
+  const TeamMembers({Key? key, this.type}) : super(key: key);
+
+  Widget member(String name, String pos, String id, String url) => Column(
+        children: [
+          Container(
+            constraints: BoxConstraints(
+              maxHeight: 200,
+              maxWidth: 200,
+            ),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('$url'),
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Text(name, style: kBody),
+          SizedBox(height: 8),
+          Text(pos, style: kSubBody),
+          SizedBox(height: 8),
+          Text(id, style: kSubBody),
+        ],
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return type != 2 && displayWidth(context) > 848
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              member('Suchir Sharma', 'Coordinator', '2019522@iiitdmj.ac.in',
+                  'assets/images/coco.png'),
+              member('Dr. Harpreet Singh', 'Faculty in charge', '',
+                  'assets/images/faculty.png'),
+              member('Bhadra Balu,', 'Co-Coordinator', '2019504@iiitdmj.ac.in',
+                  'assets/images/coco1.png'),
+            ],
+          )
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              member('Suchir Sharma', 'Coordinator', '2019522@iiitdmj.ac.in',
+                  'assets/images/coco.png'),
+              member('Dr. Harpreet Singh', 'Faculty in charge', '',
+                  'assets/images/faculty.png'),
+              member('Bhadra Balu,', 'Co-Coordinator', '2019504@iiitdmj.ac.in',
+                  'assets/images/coco1.png'),
+            ],
+          );
   }
 }
 

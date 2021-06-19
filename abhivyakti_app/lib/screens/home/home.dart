@@ -44,13 +44,13 @@ class _HomeState extends State<Home> {
                                       Expanded(
                                         flex: 4,
                                         child: InkWell(
-                                          onTap: () {
-                                            widget.scrollController!.animateTo(
-                                                2567,
-                                                duration: Duration(
-                                                    milliseconds: 1200),
-                                                curve: Curves.ease);
-                                          },
+                                          // onTap: () {
+                                          //   widget.scrollController!.animateTo(
+                                          //       2567,
+                                          //       duration: Duration(
+                                          //           milliseconds: 1200),
+                                          //       curve: Curves.ease);
+                                          // },
                                           child: Container(
                                             color: Colors.black,
                                             child: Column(
@@ -83,13 +83,13 @@ class _HomeState extends State<Home> {
                                       Expanded(
                                         flex: 6,
                                         child: InkWell(
-                                          onTap: () {
-                                            widget.scrollController!.animateTo(
-                                                3707,
-                                                duration: Duration(
-                                                    milliseconds: 1600),
-                                                curve: Curves.ease);
-                                          },
+                                          // onTap: () {
+                                          //   widget.scrollController!.animateTo(
+                                          //       3707,
+                                          //       duration: Duration(
+                                          //           milliseconds: 1600),
+                                          //       curve: Curves.ease);
+                                          // },
                                           child: Container(
                                             decoration: BoxDecoration(
                                               border: Border(
@@ -141,11 +141,11 @@ class _HomeState extends State<Home> {
                       Expanded(
                         flex: 3,
                         child: InkWell(
-                          onTap: () {
-                            widget.scrollController!.animateTo(754,
-                                duration: Duration(milliseconds: 400),
-                                curve: Curves.ease);
-                          },
+                          // onTap: () {
+                          //   widget.scrollController!.animateTo(754,
+                          //       duration: Duration(milliseconds: 400),
+                          //       curve: Curves.ease);
+                          // },
                           child: Container(
                             color: kRed,
                             child: Stack(
@@ -200,11 +200,11 @@ class _HomeState extends State<Home> {
                       Expanded(
                         flex: 3,
                         child: InkWell(
-                          onTap: () {
-                            widget.scrollController!.animateTo(5172,
-                                duration: Duration(milliseconds: 2000),
-                                curve: Curves.ease);
-                          },
+                          // onTap: () {
+                          //   widget.scrollController!.animateTo(5172,
+                          //       duration: Duration(milliseconds: 2000),
+                          //       curve: Curves.ease);
+                          // },
                           child: Container(
                             color: kRed,
                             child: Row(
@@ -262,11 +262,11 @@ class _HomeState extends State<Home> {
                       Expanded(
                         flex: 4,
                         child: InkWell(
-                          onTap: () {
-                            widget.scrollController!.animateTo(1467,
-                                duration: Duration(milliseconds: 800),
-                                curve: Curves.ease);
-                          },
+                          // onTap: () {
+                          //   widget.scrollController!.animateTo(1467,
+                          //       duration: Duration(milliseconds: 800),
+                          //       curve: Curves.ease);
+                          // },
                           child: Container(
                             color: Colors.black,
                             child: Stack(

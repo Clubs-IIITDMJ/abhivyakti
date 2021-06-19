@@ -37,6 +37,12 @@ TextStyle kBodyMobile = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w300,
 );
+
+TextStyle kSubBody = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.w300,
+);
+
 Color kRed = Color(0XFFFF2C2C);
 Color kRed2 = Color(0XFFFD0105);
 Color kBlue = Color(0XFF5865F2);

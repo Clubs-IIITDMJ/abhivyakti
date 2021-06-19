@@ -45,11 +45,11 @@ class SideBar extends StatelessWidget {
                 ),
                 SizedBox(height: 105),
                 InkWell(
-                  onTap: () {
-                    scrollController!.animateTo(1467,
-                        duration: Duration(milliseconds: 800),
-                        curve: Curves.ease);
-                  },
+                  // onTap: () {
+                  //   scrollController!.animateTo(1467,
+                  //       duration: Duration(milliseconds: 800),
+                  //       curve: Curves.ease);
+                  // },
                   child: Container(
                     child: SvgPicture.asset(IconsData.galleryAsset),
                   ),

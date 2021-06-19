@@ -2,6 +2,7 @@ import 'package:abhivyakti_app/core/constants.dart';
 import 'package:abhivyakti_app/core/icons.dart';
 import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,7 +17,7 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int type = 0;
-  double _top = 0, _left = 0, _right = 0, _height = 0, _width = 0;
+  double _top = 0, _left = 0, _right = 0, _width = 0;
   double _h = 0, _w = 0;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,6 @@ class _BottomBarState extends State<BottomBar> {
       builder: (context, size) {
         if (size.isMobile) {
           type = 2;
-          _height = 10;
           _width = 20;
           _left = 10;
           _top = 20;
@@ -33,7 +33,6 @@ class _BottomBarState extends State<BottomBar> {
           _h = 50;
         } else if (size.isTablet) {
           type = 1;
-          _height = 15;
           _width = 40;
           _left = 25;
           _top = 75;
@@ -42,7 +41,6 @@ class _BottomBarState extends State<BottomBar> {
           _h = 78;
         } else {
           type = 0;
-          _height = 25;
           _width = 100;
           _left = 50;
           _top = 100;
@@ -128,16 +126,15 @@ class _BottomBarState extends State<BottomBar> {
               Row(
                 children: [
                   Container(
-                    alignment: Alignment.topCenter,
-                    padding: EdgeInsets.only(top: 40),
                     height: _h,
+                    width: _w,
                     child: Image.asset(IconsData.iiitAsset),
                   ),
-                  SizedBox(width: 30),
+                  SizedBox(width: 20),
                   Container(
                     height: _h,
                     width: _w,
-                    child: Image.asset(IconsData.logo2Asset),
+                    child: SvgPicture.asset('assets/svg/abhivyakti.svg'),
                   ),
                 ],
               ),
