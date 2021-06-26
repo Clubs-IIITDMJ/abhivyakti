@@ -83,7 +83,7 @@ class _BottomBarState extends State<BottomBar> {
                       : type == 1
                           ? 35
                           : 70),
-              subHead(type: type),
+              SubHead(type: type),
               SizedBox(
                 height: type == 2
                     ? 8
@@ -146,8 +146,8 @@ class _BottomBarState extends State<BottomBar> {
   }
 }
 
-class subHead extends StatelessWidget {
-  const subHead({
+class SubHead extends StatelessWidget {
+  const SubHead({
     Key? key,
     required this.type,
   }) : super(key: key);
@@ -169,21 +169,21 @@ class subHead extends StatelessWidget {
                             : 30),
               ),
               Spacer(),
-              social(
+              Social(
                 type: type,
                 url: 'https://www.instagram.com/abhivyakti_iiitdmj/?hl=en',
                 name: 'Instagram',
                 color: kRed2,
               ),
               SizedBox(width: 40),
-              social(
+              Social(
                 type: type,
                 name: 'Discord',
                 color: kBlue,
                 url: 'https://discord.gg/N6tfdvg5',
               ),
               SizedBox(width: 40),
-              social(
+              Social(
                 type: type,
                 name: 'FaceBook',
                 url: 'https://www.facebook.com/abhivyakti.iiit/',
@@ -205,21 +205,21 @@ class subHead extends StatelessWidget {
               ),
               Row(
                 children: [
-                  social(
+                  Social(
                     type: type,
                     url: 'https://www.instagram.com/abhivyakti_iiitdmj/?hl=en',
                     name: 'Instagram',
                     color: kRed2,
                   ),
                   SizedBox(width: 40),
-                  social(
+                  Social(
                     type: type,
                     name: 'Discord',
                     color: kBlue,
                     url: 'https://discord.gg/N6tfdvg5',
                   ),
                   SizedBox(width: 40),
-                  social(
+                  Social(
                     type: type,
                     name: 'FaceBook',
                     url: 'https://www.facebook.com/abhivyakti.iiit/',
@@ -232,8 +232,8 @@ class subHead extends StatelessWidget {
   }
 }
 
-class social extends StatelessWidget {
-  const social({
+class Social extends StatelessWidget {
+  const Social({
     Key? key,
     required this.type,
     required this.url,

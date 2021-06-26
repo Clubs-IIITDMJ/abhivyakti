@@ -1,5 +1,5 @@
-import 'dart:html';
 import 'dart:ui' as ui;
+import 'dart:html';
 import 'package:abhivyakti_app/core/constants.dart';
 import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class News extends StatefulWidget {
 
 class _NewsState extends State<News> {
   int type = 0;
-  double _left = 0, _right = 0, _top = 0;
+  double _left = 0, _top = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _NewsState extends State<News> {
         // _width = 20;
         _left = 20;
         _top = 20;
-        _right = 0;
+        // _right = 0;
         // _w = 30;
         // _h = 50;
       } else if (size.isTablet) {
@@ -32,7 +32,7 @@ class _NewsState extends State<News> {
         // _width = 40;
         _left = 25;
         _top = 75;
-        _right = 75;
+        // _right = 75;
         // _w = 47;
         // _h = 78;
       } else {
@@ -40,7 +40,7 @@ class _NewsState extends State<News> {
         // _width = 100;
         _left = 130;
         _top = 50;
-        _right = 50;
+        // _right = 50;
         // _w = 95;
         // _h = 120;
       }

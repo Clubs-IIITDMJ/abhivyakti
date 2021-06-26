@@ -1,9 +1,7 @@
 import 'package:abhivyakti_app/core/constants.dart';
 import 'package:abhivyakti_app/core/icons.dart';
-import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:abhivyakti_app/widgets/carousel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 List _images = [

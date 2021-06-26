@@ -1,19 +1,18 @@
-import 'dart:ui';
-
 import 'package:abhivyakti_app/core/constants.dart';
 import 'package:abhivyakti_app/core/responsive.dart';
+import 'package:abhivyakti_app/core/strings.dart';
 import 'package:abhivyakti_app/widgets/carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 List _images = [
-  AssetImage('assets/gallery/1.png'),
-  AssetImage('assets/gallery/2.png'),
-  AssetImage('assets/gallery/3.png'),
-  AssetImage('assets/gallery/4.png'),
-  AssetImage('assets/gallery/5.png'),
-  AssetImage('assets/gallery/6.png'),
-  AssetImage('assets/gallery/7.png'),
+  NetworkImage('assets/gallery/1.png'),
+  NetworkImage('assets/gallery/2.png'),
+  NetworkImage('assets/gallery/3.png'),
+  NetworkImage('assets/gallery/4.png'),
+  NetworkImage('assets/gallery/5.png'),
+  NetworkImage('assets/gallery/6.png'),
+  NetworkImage('assets/gallery/7.png'),
 ];
 
 class Gallery extends StatefulWidget {
@@ -56,21 +55,13 @@ class _GalleryState extends State<Gallery> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'GALLERY',
-                    style: type == 2
-                        ? kTitleMobile
-                        : type == 1
-                            ? kTitleTablet
-                            : kTitle,
+                    kGalleryTitle,
+                    style: kTitle,
                   ),
                   SizedBox(height: _height),
                   Text(
                     'A collection of photos from the club ',
-                    style: type == 2
-                        ? kBodyMobile
-                        : type == 1
-                            ? kBodyTablet
-                            : kBody,
+                    style: kBody,
                   ),
                 ],
               ),

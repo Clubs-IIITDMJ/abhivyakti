@@ -1,44 +1,55 @@
 import 'package:flutter/material.dart';
 
 TextStyle kTitle = TextStyle(
-  fontSize: 64,
-  fontWeight: FontWeight.w300,
-);
-TextStyle kTitleMobile = TextStyle(
-  fontSize: 20,
+  fontFamily: 'Lufga',
+  fontSize: 50,
   fontWeight: FontWeight.w300,
 );
 TextStyle kTitleTablet = TextStyle(
-  fontSize: 32,
+  fontFamily: 'Lufga',
+  fontSize: 30,
   fontWeight: FontWeight.w300,
 );
+TextStyle kTitleMobile = TextStyle(
+  fontFamily: 'Lufga',
+  fontSize: 20,
+  fontWeight: FontWeight.w300,
+);
+
 TextStyle kHeading = TextStyle(
+  fontFamily: 'Lufga',
   fontSize: 36,
   fontWeight: FontWeight.w300,
 );
 TextStyle kHeadingTablet = TextStyle(
+  fontFamily: 'Lufga',
   fontSize: 25,
   fontWeight: FontWeight.w300,
 );
 TextStyle kHeadingMobile = TextStyle(
+  fontFamily: 'Lufga',
   fontSize: 18,
   fontWeight: FontWeight.w300,
 );
 
 TextStyle kBody = TextStyle(
-  fontSize: 24,
+  fontFamily: 'Lufga',
+  fontSize: 20,
   fontWeight: FontWeight.w300,
 );
 TextStyle kBodyTablet = TextStyle(
-  fontSize: 18,
+  fontFamily: 'Lufga',
+  fontSize: 15,
   fontWeight: FontWeight.w300,
 );
 TextStyle kBodyMobile = TextStyle(
+  fontFamily: 'Lufga',
   fontSize: 12,
   fontWeight: FontWeight.w300,
 );
 
 TextStyle kSubBody = TextStyle(
+  fontFamily: 'Lufga',
   fontSize: 15,
   fontWeight: FontWeight.w300,
 );

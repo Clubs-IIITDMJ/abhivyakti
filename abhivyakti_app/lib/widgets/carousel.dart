@@ -1,5 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Carousel extends StatefulWidget {
   final double? height;
@@ -25,13 +25,7 @@ class _CarouselState extends State<Carousel> {
       items: [
         ...List.generate(
           widget.images!.length,
-          (index) => Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: widget.images![index],
-              fit: BoxFit.fill,
-            )),
-          ),
+          (index) => widget.images![index],
         ),
       ],
       options: CarouselOptions(

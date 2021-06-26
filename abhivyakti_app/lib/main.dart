@@ -15,13 +15,13 @@ void main() async {
           SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-2.svg'),
       null,
     ),
-    precachePicture(
-      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/images/logo1.png'),
-      null,
-    ),
+    // precachePicture(
+    //   ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/images/logo1.png'),
+    //   null,
+    // ),
     precachePicture(
       ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/art/abhivyakti.svg'),
+          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti.svg'),
       null,
     ),
     precachePicture(
@@ -40,11 +40,11 @@ void main() async {
     ),
     precachePicture(
       ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/images/bottom_doodle.png'),
+          SvgPicture.svgStringDecoder, 'assets/svg/bottom_doodle.svg'),
       null,
     ),
     precachePicture(
-      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/art/drafts.svg'),
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/drafts.svg'),
       null,
     ),
     precachePicture(
@@ -56,34 +56,34 @@ void main() async {
       ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/grass.svg'),
       null,
     ),
-    precachePicture(
-      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/iiit.svg'),
-      null,
-    ),
+    // precachePicture(
+    //   ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/iiit.svg'),
+    //   null,
+    // ),
     precachePicture(
       ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/images/instagram.png'),
+          SvgPicture.svgStringDecoder, 'assets/svg/instagram.svg'),
       null,
     ),
     precachePicture(
-      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/art/leaf.svg'),
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/leaf.svg'),
       null,
     ),
     precachePicture(
       ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo-big.svg'),
       null,
     ),
-    precachePicture(
-      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo2.svg'),
-      null,
-    ),
+    // precachePicture(
+    //   ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo2.svg'),
+    //   null,
+    // ),
     precachePicture(
       ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/roll.svg'),
       null,
     ),
     precachePicture(
       ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/images/team_doodle.png'),
+          SvgPicture.svgStringDecoder, 'assets/svg/team_doodle.svg'),
       null,
     ),
   ]);
