@@ -14,3 +14,8 @@ const String kAboutHead5 =
 
 /*--- GALLERY ---*/
 const String kGalleryTitle = 'GALLERY';
+const String kGalleryHeading = 'A collection of photos from the club';
+
+/*--- Art ---*/
+const String kArtTitle = 'ART';
+const String kArtHeading = 'Artworks from the members of the club.';

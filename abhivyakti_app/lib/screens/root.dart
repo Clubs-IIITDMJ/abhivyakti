@@ -25,23 +25,21 @@ class _RootState extends State<Root> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: InteractiveViewer(
-          scaleEnabled: false,
-          child: ListView(
-            children: [
-              // Home(scrollController: _controller),
-              About(),
-              // Gallery(),
-              // Art(),
-              // News(),
-              // Team(),
-              // Commitee(),
-              // BottomBar(),
-            ],
-          ),
-        ),
+      body: ListView(
+        children: [
+          // Home(scrollController: _controller),
+          // About(),
+          // Gallery(),
+          // Art(),
+          News(),
+          Team(),
+          // Commitee(),
+          // BottomBar(),
+        ],
       ),
     );
   }
 }
+
+
+// TODO: home, team, committe,bottombar

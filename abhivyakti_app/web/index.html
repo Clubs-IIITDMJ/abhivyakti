@@ -38,6 +38,15 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    // This prevents zooming in using CTRL + mouse wheel.
+    document.addEventListener('wheel', function (e) {
+      e.ctrlKey && e.preventDefault();
+    }, {
+      passive: false,
+    });
+  </script>
+  
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_mc5i8ykg.json" background="transparent" speed="1.2"
     style="width: 100vw; height: 100vh; margin: 0 auto;" loop autoplay></lottie-player>

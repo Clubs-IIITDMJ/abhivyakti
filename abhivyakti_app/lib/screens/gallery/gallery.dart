@@ -5,16 +5,6 @@ import 'package:abhivyakti_app/widgets/carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-List _images = [
-  NetworkImage('assets/gallery/1.png'),
-  NetworkImage('assets/gallery/2.png'),
-  NetworkImage('assets/gallery/3.png'),
-  NetworkImage('assets/gallery/4.png'),
-  NetworkImage('assets/gallery/5.png'),
-  NetworkImage('assets/gallery/6.png'),
-  NetworkImage('assets/gallery/7.png'),
-];
-
 class Gallery extends StatefulWidget {
   const Gallery({Key? key}) : super(key: key);
 
@@ -23,60 +13,74 @@ class Gallery extends StatefulWidget {
 }
 
 class _GalleryState extends State<Gallery> {
-  int type = 0;
-  double _top = 0, _height = 0, _height1 = 0;
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(builder: (context, size) {
-      if (size.isMobile) {
-        type = 2;
-        _top = 10;
-        _height = 10;
-        _height1 = 20;
-      } else if (size.isTablet) {
-        type = 1;
-        _top = 25;
-        _height = 15;
-        _height1 = 40;
-      } else {
-        type = 0;
-        _top = 50;
-        _height = 25;
-        _height1 = 100;
-      }
-      return Container(
-        width: displayWidth(context),
+    return ScreenTypeLayout(
+      mobile: _content(
+        vSpace: 20,
+        bodyStyle: kBodyMobile,
+        titleStyle: kTitleMobile,
+        padding: EdgeInsets.only(top: 10),
+      ),
+      tablet: _content(
+        vSpace: 40,
+        bodyStyle: kBodyTablet,
+        titleStyle: kTitleTablet,
+        padding: EdgeInsets.only(top: 25),
+      ),
+      desktop: _content(
+        vSpace: 80,
+        bodyStyle: kBody,
+        titleStyle: kTitle,
+        padding: EdgeInsets.only(top: 50),
+      ),
+    );
+  }
+
+  Widget _content({
+    TextStyle? titleStyle,
+    TextStyle? bodyStyle,
+    EdgeInsets? padding,
+    double? vSpace,
+  }) =>
+      Container(
+        constraints: BoxConstraints(
+          minWidth: 360,
+          minHeight: 300,
+          maxWidth: 1440,
+        ),
+        margin: EdgeInsets.only(bottom: 15),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              padding: EdgeInsets.only(top: _top),
+              padding: padding,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     kGalleryTitle,
-                    style: kTitle,
+                    style: titleStyle,
                   ),
-                  SizedBox(height: _height),
+                  SizedBox(height: vSpace! / 2),
                   Text(
-                    'A collection of photos from the club ',
-                    style: kBody,
+                    kGalleryHeading,
+                    style: bodyStyle,
                   ),
                 ],
               ),
             ),
-            SizedBox(height: _height1),
+            SizedBox(height: vSpace),
             Container(
               child: Carousel(
-                height: type == 0 ? 380 : 150,
+                isGallery: true,
+                // height: type == 0 ? 380 : 150,
+                height: 150,
                 aspectRatio: 2,
-                images: _images,
               ),
             ),
           ],
         ),
       );
-    });
-  }
 }
