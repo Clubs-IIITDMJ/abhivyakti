@@ -48,9 +48,19 @@ TextStyle kBodyMobile = TextStyle(
   fontWeight: FontWeight.w300,
 );
 
-TextStyle kSubBody = TextStyle(
+TextStyle kSubBodyMobile = TextStyle(
   fontFamily: 'Lufga',
   fontSize: 15,
+  fontWeight: FontWeight.w300,
+);
+TextStyle kSubBodyTablet = TextStyle(
+  fontFamily: 'Lufga',
+  fontSize: 10,
+  fontWeight: FontWeight.w300,
+);
+TextStyle kSubBodyDesktop = TextStyle(
+  fontFamily: 'Lufga',
+  fontSize: 8,
   fontWeight: FontWeight.w300,
 );
 

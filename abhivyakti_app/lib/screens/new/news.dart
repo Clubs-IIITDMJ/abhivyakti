@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 import 'dart:html';
 import 'package:abhivyakti_app/core/constants.dart';
 import 'package:abhivyakti_app/core/responsive.dart';
+import 'package:abhivyakti_app/core/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -19,38 +20,17 @@ class _NewsState extends State<News> {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (context, size) {
-      if (size.isMobile) {
-        type = 2;
-        // _width = 20;
-        _left = 20;
-        _top = 20;
-        // _right = 0;
-        // _w = 30;
-        // _h = 50;
-      } else if (size.isTablet) {
-        type = 1;
-        // _width = 40;
-        _left = 25;
-        _top = 75;
-        // _right = 75;
-        // _w = 47;
-        // _h = 78;
-      } else {
-        type = 0;
-        // _width = 100;
-        _left = 130;
-        _top = 50;
-        // _right = 50;
-        // _w = 95;
-        // _h = 120;
-      }
-      return Container(
+      return Container();
+    });
+  }
+
+  Widget content() => Container(
         padding: EdgeInsets.only(left: _left, top: _top),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'NEWS AND EVENTS',
+              kNews,
               style: type == 2
                   ? kTitleMobile
                   : type == 1
@@ -79,9 +59,6 @@ class _NewsState extends State<News> {
           ],
         ),
       );
-    });
-  }
-
   Text headText(String title) {
     return Text(
       '$title',

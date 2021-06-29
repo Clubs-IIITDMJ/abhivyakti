@@ -28,13 +28,13 @@ class _RootState extends State<Root> {
       body: ListView(
         children: [
           // Home(scrollController: _controller),
-          // About(),
-          // Gallery(),
-          // Art(),
+          About(),
+          Gallery(),
+          Art(),
           News(),
           Team(),
-          // Commitee(),
-          // BottomBar(),
+          Commitee(),
+          BottomBar(),
         ],
       ),
     );
@@ -42,4 +42,4 @@ class _RootState extends State<Root> {
 }
 
 
-// TODO: home, team, committe,bottombar
+// TODO: home,bottombar,news

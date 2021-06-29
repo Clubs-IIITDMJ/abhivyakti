@@ -19,3 +19,10 @@ const String kGalleryHeading = 'A collection of photos from the club';
 /*--- Art ---*/
 const String kArtTitle = 'ART';
 const String kArtHeading = 'Artworks from the members of the club.';
+
+/*--- News ---*/
+const String kNews = 'NEWS AND EVENTS';
+
+/*--- Team ---*/
+const String kTeamTitle = 'THE TEAM';
+const String kTeamHeading = 'This is us.';
