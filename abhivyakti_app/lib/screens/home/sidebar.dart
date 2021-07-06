@@ -7,11 +7,14 @@ class SideBar extends StatelessWidget {
   final Size? size;
   final Size? iconSize;
   final double? iconSpacing;
+  final Function()? onTap;
+
   const SideBar({
     Key? key,
     this.size,
     this.iconSize,
     this.iconSpacing,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -41,13 +44,16 @@ class SideBar extends StatelessWidget {
           ),
           Expanded(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  child: SvgPicture.asset(
-                    IconsData.rollAsset,
-                    height: iconSize!.height,
-                    width: iconSize!.width,
+                InkWell(
+                  onTap: onTap,
+                  child: Container(
+                    child: SvgPicture.asset(
+                      IconsData.rollAsset,
+                      height: iconSize!.height,
+                      width: iconSize!.width,
+                    ),
                   ),
                 ),
                 SizedBox(height: iconSpacing),
@@ -97,6 +103,7 @@ class SideBar extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: iconSpacing),
               ],
             ),
           ),

@@ -28,14 +28,14 @@ class _RootState extends State<Root> {
     return Scaffold(
       body: ListView(
         children: [
-          // Home(),
-          // About(),
-          // Gallery(),
+          Home(),
+          About(),
+          Gallery(),
           // Art(),
           // News(),
           // Team(),
           // Commitee(),
-          BottomBar(),
+          // BottomBar(),
         ],
       ),
     );
