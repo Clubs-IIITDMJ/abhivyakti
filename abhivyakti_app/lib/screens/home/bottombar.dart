@@ -16,250 +16,198 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int type = 0;
-  double _top = 0, _left = 0, _right = 0, _width = 0;
-  double _h = 0, _w = 0;
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, size) {
-        if (size.isMobile) {
-          type = 2;
-          _width = 20;
-          _left = 10;
-          _top = 20;
-          _right = 40;
-          _w = 30;
-          _h = 50;
-        } else if (size.isTablet) {
-          type = 1;
-          _width = 40;
-          _left = 25;
-          _top = 75;
-          _right = 75;
-          _w = 47;
-          _h = 78;
-        } else {
-          type = 0;
-          _width = 100;
-          _left = 50;
-          _top = 100;
-          _right = 100;
-          _w = 95;
-          _h = 120;
-        }
-        return Container(
-          padding: EdgeInsets.only(left: _left, right: _right, top: _top),
-          decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(color: Colors.black12, width: 1),
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'CONTACT US',
-                    style: TextStyle(
-                        fontSize: type == 2
-                            ? 18
-                            : type == 1
-                                ? 25
-                                : 48),
-                  ),
-                  SizedBox(width: _width),
-                  Container(
-                    height: _h,
-                    width: _w,
-                    child: IconsData.sharkDoodle,
-                  ),
-                ],
-              ),
-              SizedBox(
-                  height: type == 2
-                      ? 17
-                      : type == 1
-                          ? 35
-                          : 70),
-              SubHead(type: type),
-              SizedBox(
-                height: type == 2
-                    ? 8
-                    : type == 1
-                        ? 10
-                        : 12,
-              ),
-              Text(
-                'PDPM IIITDM JABALPUR',
-                style: TextStyle(
-                  fontSize: type == 2
-                      ? 12
-                      : type == 1
-                          ? 16
-                          : 24,
-                ),
-              ),
-              SizedBox(
-                  height: type == 2
-                      ? 4
-                      : type == 1
-                          ? 8
-                          : 30),
-              Text(
-                'abhivyakti@iiitdmj.ac.in',
-                style: TextStyle(
-                    fontSize: type == 2
-                        ? 10
-                        : type == 1
-                            ? 14
-                            : 20,
-                    color: kRed),
-              ),
-              SizedBox(
-                  height: type == 2
-                      ? 12
-                      : type == 1
-                          ? 25
-                          : 50),
-              Row(
-                children: [
-                  Container(
-                    height: _h,
-                    width: _w,
-                    child: Image.asset(IconsData.iiitAsset),
-                  ),
-                  SizedBox(width: 20),
-                  Container(
-                    height: _h,
-                    width: _w,
-                    child: SvgPicture.asset('assets/svg/abhivyakti.svg'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
+    return ScreenTypeLayout(
+      mobile: content(
+        space: Size(15, 10),
+        size: Size(25, 40),
+        bodyStyle: kBodyMobile,
+        subBodyStyle: kSubBodyMobile,
+        headingstyle: kHeadingMobile,
+        subHeadingstyle: kBody0Mobile,
+        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+      ),
+      tablet: content(
+        space: Size(25, 15),
+        size: Size(40, 70),
+        bodyStyle: kBodyTablet,
+        subBodyStyle: kSubBodyTablet,
+        headingstyle: kHeadingTablet,
+        subHeadingstyle: kBody0Tablet,
+        padding: EdgeInsets.only(left: 30, right: 30, top: 20),
+      ),
+      desktop: content(
+        space: Size(40, 20),
+        size: Size(50, 90),
+        bodyStyle: kBody,
+        subBodyStyle: kSubBody,
+        headingstyle: kHeading,
+        subHeadingstyle: kBody0,
+        padding: EdgeInsets.only(left: 50, right: 50, top: 20),
+      ),
     );
   }
+
+  Widget content({
+    Size? size,
+    Size? space,
+    EdgeInsets? padding,
+    TextStyle? headingstyle,
+    TextStyle? subHeadingstyle,
+    TextStyle? bodyStyle,
+    TextStyle? subBodyStyle,
+  }) =>
+      Container(
+        padding: padding,
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.black12, width: 1),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Text(
+                  'CONTACT US',
+                  style: headingstyle,
+                ),
+                SizedBox(width: 20),
+                Container(
+                  height: size!.height,
+                  width: size.width,
+                  child: IconsData.sharkDoodle,
+                ),
+              ],
+            ),
+            SizedBox(height: space!.height),
+            SubHead(
+              width: displayWidth(context) - padding!.left - padding.right,
+              titleStyle: subHeadingstyle,
+              subTitleStyle: bodyStyle,
+              hSpace: space.width,
+            ),
+            SizedBox(height: space.height),
+            Text(
+              'PDPM IIITDM JABALPUR',
+              style: bodyStyle,
+            ),
+            SizedBox(height: space.height),
+            InkWell(
+              onTap: () async {
+                // if (await canLaunch('abhivyakti@iiitdmj.ac.in')) {
+                launch(
+                    'https://mail.google.com/mail/?view=cm&fs=1&to=abhivyakti@iiitdmj.ac.in');
+                // }
+              },
+              child: Text(
+                'abhivyakti@iiitdmj.ac.in',
+                style: subBodyStyle!.copyWith(color: kRed),
+              ),
+            ),
+            SizedBox(height: space.height * 2),
+            Row(
+              children: [
+                Container(
+                  height: size.height,
+                  width: size.width,
+                  child: Image.asset(IconsData.iiitAsset),
+                ),
+                SizedBox(width: 20),
+                Container(
+                  height: size.height,
+                  width: size.width,
+                  child: SvgPicture.asset('assets/svg/abhivyakti.svg'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
 }
 
 class SubHead extends StatelessWidget {
   const SubHead({
     Key? key,
-    required this.type,
+    this.titleStyle,
+    this.subTitleStyle,
+    this.width,
+    this.hSpace,
   }) : super(key: key);
 
-  final int type;
+  final TextStyle? titleStyle;
+  final TextStyle? subTitleStyle;
+  final double? width;
+  final double? hSpace;
 
   @override
   Widget build(BuildContext context) {
-    return displayWidth(context) > 690
-        ? Row(
+    return Container(
+      width: width,
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        children: [
+          Text(
+            'ABHIVYAKTI - THE ARTS CLUB',
+            style: titleStyle,
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                'ABHIVYAKTI - THE ARTS CLUB',
-                style: TextStyle(
-                    fontSize: type == 2
-                        ? 12
-                        : type == 1
-                            ? 18
-                            : 30),
-              ),
-              Spacer(),
               Social(
-                type: type,
+                textStyle: subTitleStyle,
                 url: 'https://www.instagram.com/abhivyakti_iiitdmj/?hl=en',
                 name: 'Instagram',
                 color: kRed2,
               ),
-              SizedBox(width: 40),
+              SizedBox(width: hSpace),
               Social(
-                type: type,
+                textStyle: subTitleStyle,
                 name: 'Discord',
                 color: kBlue,
                 url: 'https://discord.gg/N6tfdvg5',
               ),
-              SizedBox(width: 40),
+              SizedBox(width: hSpace),
               Social(
-                type: type,
+                textStyle: subTitleStyle,
                 name: 'FaceBook',
                 url: 'https://www.facebook.com/abhivyakti.iiit/',
                 color: kBlue2,
               ),
             ],
           )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'ABHIVYAKTI - THE ARTS CLUB',
-                style: TextStyle(
-                    fontSize: type == 2
-                        ? 12
-                        : type == 1
-                            ? 18
-                            : 30),
-              ),
-              Row(
-                children: [
-                  Social(
-                    type: type,
-                    url: 'https://www.instagram.com/abhivyakti_iiitdmj/?hl=en',
-                    name: 'Instagram',
-                    color: kRed2,
-                  ),
-                  SizedBox(width: 40),
-                  Social(
-                    type: type,
-                    name: 'Discord',
-                    color: kBlue,
-                    url: 'https://discord.gg/N6tfdvg5',
-                  ),
-                  SizedBox(width: 40),
-                  Social(
-                    type: type,
-                    name: 'FaceBook',
-                    url: 'https://www.facebook.com/abhivyakti.iiit/',
-                    color: kBlue2,
-                  ),
-                ],
-              ),
-            ],
-          );
+        ],
+      ),
+    );
   }
 }
 
 class Social extends StatelessWidget {
   const Social({
     Key? key,
-    required this.type,
     required this.url,
     required this.name,
     required this.color,
+    this.textStyle,
   }) : super(key: key);
 
-  final int type;
   final String url;
   final String name;
   final Color color;
+  final TextStyle? textStyle;
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () async {
         if (await canLaunch('$url')) launch('$url');
       },
       child: Text(
         '$name',
-        style: TextStyle(
-            fontSize: type == 2
-                ? 12
-                : type == 1
-                    ? 16
-                    : 24,
-            color: color),
+        style: textStyle!.copyWith(color: color),
       ),
     );
   }

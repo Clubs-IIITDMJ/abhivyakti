@@ -14,71 +14,91 @@ class News extends StatefulWidget {
 }
 
 class _NewsState extends State<News> {
-  int type = 0;
-  double _left = 0, _top = 0;
-
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(builder: (context, size) {
-      return Container();
-    });
+    return ScreenTypeLayout(
+      mobile: content(
+        space: Size(15, 15),
+        size: Size(300, 300),
+        titleStyle: kTitleMobile,
+        bodyStyle: kBodyMobile,
+        padding: EdgeInsets.only(left: 15, top: 20),
+      ),
+      tablet: content(
+        space: Size(25, 25),
+        size: Size(350, 500),
+        titleStyle: kTitleTablet,
+        bodyStyle: kBodyTablet,
+        padding: EdgeInsets.only(left: 25, top: 30),
+      ),
+      desktop: content(
+        space: Size(30, 30),
+        size: Size(500, 700),
+        titleStyle: kTitle,
+        bodyStyle: kBody,
+        padding: EdgeInsets.only(left: 50, top: 40),
+      ),
+    );
   }
 
-  Widget content() => Container(
-        padding: EdgeInsets.only(left: _left, top: _top),
+  Widget content({
+    TextStyle? titleStyle,
+    TextStyle? bodyStyle,
+    Size space = const Size(0, 0),
+    Size size = const Size(0, 0),
+    EdgeInsets? padding,
+  }) =>
+      Container(
+        padding: padding,
+        constraints: BoxConstraints(
+          maxHeight: displayHeight(context),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               kNews,
-              style: type == 2
-                  ? kTitleMobile
-                  : type == 1
-                      ? kTitleTablet
-                      : kTitle,
+              style: titleStyle,
             ),
-            SizedBox(height: type == 0 ? 45 : 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  child: DiscordApp(type: type),
-                ),
-                SizedBox(width: 90),
-                if (type != 2)
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      headText('DISCORD'),
-                      headText('ANNOUNCEMENTS'),
-                    ],
+            SizedBox(height: space.height),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(bottom: 100),
+                    height: size.height,
+                    width: size.width,
+                    child: DiscordApp(
+                      size: size,
+                    ),
                   ),
-              ],
+                  // SizedBox(width: space.width),
+                  // Column(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     headText('DISCORD', bodyStyle!),
+                  //     headText('ANNOUNCEMENTS', bodyStyle),
+                  //   ],
+                  // ),
+                ],
+              ),
             )
           ],
         ),
       );
-  Text headText(String title) {
-    return Text(
-      '$title',
-      style: TextStyle(
-        fontSize: displayWidth(context) > 1078
-            ? 30
-            : displayWidth(context) > 988
-                ? 20
-                : displayWidth(context) > 988
-                    ? 12
-                    : 0,
-        fontWeight: FontWeight.w300,
-      ),
-    );
+  Text headText(String title, TextStyle style) {
+    return Text('$title', style: style);
   }
 }
 
 class DiscordApp extends StatefulWidget {
-  final int? type;
-  const DiscordApp({Key? key, this.type}) : super(key: key);
+  final Size? size;
+  const DiscordApp({
+    Key? key,
+    this.size = const Size(300, 300),
+  }) : super(key: key);
 
   @override
   _DiscordAppState createState() => _DiscordAppState();
@@ -97,11 +117,11 @@ class _DiscordAppState extends State<DiscordApp> {
     //width="350" height="500" allowtransparency="true" frameborder="0"
     //sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
-    _iframeElement.height = '500';
-    _iframeElement.width = '350';
+    _iframeElement.height = '${widget.size!.height}';
+    _iframeElement.width = '${widget.size!.width}';
 
     _iframeElement.src =
-        "https://discord.com/widget?id=786492053588148234&theme=dark";
+        "https://discord.com/widget?id=786492053588148234&theme=light";
     _iframeElement.style.border = 'none';
     _iframeElement.sandbox!.add('allow-popups');
     _iframeElement.sandbox!.add('allow-popups-to-escape-sandbox');
@@ -122,22 +142,8 @@ class _DiscordAppState extends State<DiscordApp> {
 
   @override
   Widget build(BuildContext context) {
-    double _h = widget.type == 0
-        ? 600
-        : widget.type == 1
-            ? 500
-            : 400;
-    double _w = widget.type == 0
-        ? 600
-        : widget.type == 1
-            ? 400
-            : 250;
-    return Center(
-      child: SizedBox(
-        height: _h,
-        width: _w,
-        child: _iframeWidget,
-      ),
+    return Container(
+      child: _iframeWidget!,
     );
   }
 }

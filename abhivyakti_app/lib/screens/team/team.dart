@@ -15,8 +15,8 @@ class Team extends StatefulWidget {
 class _TeamState extends State<Team> {
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout.builder(
-      mobile: (context) => content(
+    return ScreenTypeLayout(
+      mobile: content(
         titleStyle: kTitleMobile,
         bodyStyle: kBodyMobile,
         subBodyStyle: kSubBodyMobile,
@@ -26,7 +26,7 @@ class _TeamState extends State<Team> {
         profileSize: Size(150, 150),
         vSpace: 20,
       ),
-      tablet: (context) => content(
+      tablet: content(
         titleStyle: kTitleTablet,
         bodyStyle: kBodyTablet,
         subBodyStyle: kSubBodyTablet,
@@ -36,10 +36,10 @@ class _TeamState extends State<Team> {
         profileSize: Size(150, 150),
         vSpace: 40,
       ),
-      desktop: (context) => content(
+      desktop: content(
         titleStyle: kTitle,
         bodyStyle: kBody,
-        subBodyStyle: kSubBodyDesktop,
+        subBodyStyle: kSubBody,
         padding: EdgeInsets.only(left: 100, right: 100, top: 50),
         profilePadding: EdgeInsets.only(left: 70),
         size: Size(95, 120),
@@ -170,31 +170,25 @@ class Commitee extends StatefulWidget {
 class _CommiteeState extends State<Commitee> {
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout.builder(
-      mobile: (context) {
-        return content(
-          padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 20),
-          headingStyle: kHeadingMobile,
-          bodyStyle: kBodyMobile,
-          space: Size(20, 20),
-        );
-      },
-      tablet: (context) {
-        return content(
-          padding: EdgeInsets.only(left: 60, right: 60, top: 25, bottom: 40),
-          headingStyle: kHeadingTablet,
-          bodyStyle: kBodyTablet,
-          space: Size(25, 25),
-        );
-      },
-      desktop: (context) {
-        return content(
-          padding: EdgeInsets.only(left: 70, right: 70, top: 50, bottom: 80),
-          headingStyle: kHeading,
-          bodyStyle: kBody,
-          space: Size(30, 30),
-        );
-      },
+    return ScreenTypeLayout(
+      mobile: content(
+        padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 20),
+        headingStyle: kHeadingMobile,
+        bodyStyle: kBodyMobile,
+        space: Size(20, 20),
+      ),
+      tablet: content(
+        padding: EdgeInsets.only(left: 60, right: 60, top: 25, bottom: 40),
+        headingStyle: kHeadingTablet,
+        bodyStyle: kBodyTablet,
+        space: Size(25, 25),
+      ),
+      desktop: content(
+        padding: EdgeInsets.only(left: 70, right: 70, top: 50, bottom: 80),
+        headingStyle: kHeading,
+        bodyStyle: kBody,
+        space: Size(30, 30),
+      ),
     );
   }
 
@@ -229,74 +223,76 @@ class _CommiteeState extends State<Commitee> {
               style: headingStyle,
             ),
             SizedBox(height: space!.height),
-            Wrap(
-              runSpacing: space.height,
-              alignment: WrapAlignment.spaceEvenly,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: space.width / 2),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          nameText('Abhijay Thachery', bodyStyle!),
-                          SizedBox(height: space.height),
-                          nameText('Anoop Jacob', bodyStyle),
-                          SizedBox(height: space.height),
-                          nameText('Madhura Kulkarni', bodyStyle),
-                        ],
+            Container(
+              child: Wrap(
+                runSpacing: space.height,
+                alignment: WrapAlignment.spaceEvenly,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: space.width / 2),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            nameText('Abhijay Thachery', bodyStyle!),
+                            SizedBox(height: space.height),
+                            nameText('Anoop Jacob', bodyStyle),
+                            SizedBox(height: space.height),
+                            nameText('Madhura Kulkarni', bodyStyle),
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: space.width),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          idText('2018501@iiitdmj.ac.in', bodyStyle),
-                          SizedBox(height: space.height),
-                          idText('2018507@iiitdmj.ac.in', bodyStyle),
-                          SizedBox(height: space.height),
-                          idText('2018515@iiitdmj.ac.in', bodyStyle),
-                        ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: space.width),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            idText('2018501@iiitdmj.ac.in', bodyStyle),
+                            SizedBox(height: space.height),
+                            idText('2018507@iiitdmj.ac.in', bodyStyle),
+                            SizedBox(height: space.height),
+                            idText('2018515@iiitdmj.ac.in', bodyStyle),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: space.width / 2),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          nameText('Tanishi Gola           ', bodyStyle),
-                          SizedBox(height: space.height),
-                          nameText('Vishnu R', bodyStyle),
-                          SizedBox(height: space.height),
-                          nameText('Ruchira B', bodyStyle),
-                        ],
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: space.width / 2),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            nameText('Tanishi Gola           ', bodyStyle),
+                            SizedBox(height: space.height),
+                            nameText('Vishnu R', bodyStyle),
+                            SizedBox(height: space.height),
+                            nameText('Ruchira B', bodyStyle),
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: space.width),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          idText('2019523@iiitdmj.ac.in', bodyStyle),
-                          SizedBox(height: space.height),
-                          idText('2019524@iiitdmj.ac.in', bodyStyle),
-                          SizedBox(height: space.height),
-                          idText('2019513@iiitdmj.ac.in', bodyStyle),
-                        ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: space.width),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            idText('2019523@iiitdmj.ac.in', bodyStyle),
+                            SizedBox(height: space.height),
+                            idText('2019524@iiitdmj.ac.in', bodyStyle),
+                            SizedBox(height: space.height),
+                            idText('2019513@iiitdmj.ac.in', bodyStyle),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),

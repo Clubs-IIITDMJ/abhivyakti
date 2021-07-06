@@ -1,3 +1,4 @@
+import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:abhivyakti_app/screens/about/about.dart';
 import 'package:abhivyakti_app/screens/art/art.dart';
 import 'package:abhivyakti_app/screens/gallery/gallery.dart';
@@ -27,13 +28,13 @@ class _RootState extends State<Root> {
     return Scaffold(
       body: ListView(
         children: [
-          // Home(scrollController: _controller),
-          About(),
-          Gallery(),
-          Art(),
-          News(),
-          Team(),
-          Commitee(),
+          // Home(),
+          // About(),
+          // Gallery(),
+          // Art(),
+          // News(),
+          // Team(),
+          // Commitee(),
           BottomBar(),
         ],
       ),
@@ -42,4 +43,4 @@ class _RootState extends State<Root> {
 }
 
 
-// TODO: home,bottombar,news
+// TODO: home

@@ -15,8 +15,8 @@ class Art extends StatefulWidget {
 class _ArtState extends State<Art> {
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout.builder(
-      mobile: (context) => content(
+    return ScreenTypeLayout(
+      mobile: content(
         titleStyle: kTitleMobile,
         bodyStyle: kBodyMobile,
         padding: EdgeInsets.only(left: 20, right: 20, top: 10),
@@ -24,7 +24,7 @@ class _ArtState extends State<Art> {
         vSpace: 20,
         imageHeight: 250,
       ),
-      tablet: (context) => content(
+      tablet: content(
         titleStyle: kTitleTablet,
         bodyStyle: kBodyTablet,
         padding: EdgeInsets.only(left: 50, right: 50, top: 25),
@@ -32,7 +32,7 @@ class _ArtState extends State<Art> {
         vSpace: 40,
         imageHeight: 540,
       ),
-      desktop: (context) => content(
+      desktop: content(
         titleStyle: kTitle,
         bodyStyle: kBody,
         padding: EdgeInsets.only(left: 100, right: 100, top: 50),

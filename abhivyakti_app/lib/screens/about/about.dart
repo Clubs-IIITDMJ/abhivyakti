@@ -16,22 +16,22 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout.builder(
-      mobile: (context) => content(
+    return ScreenTypeLayout(
+      mobile: content(
         titleStyle: kTitleMobile,
         bodyStyle: kBodyMobile,
         padding: EdgeInsets.only(left: 20, right: 20, top: 10),
         size: Size(30, 40),
         vSpace: 20,
       ),
-      tablet: (context) => content(
+      tablet: content(
         titleStyle: kTitleTablet,
         bodyStyle: kBodyTablet,
         padding: EdgeInsets.only(left: 50, right: 50, top: 25),
         size: Size(45, 70),
         vSpace: 40,
       ),
-      desktop: (context) => content(
+      desktop: content(
         titleStyle: kTitle,
         bodyStyle: kBody,
         padding: EdgeInsets.only(left: 100, right: 100, top: 50),
