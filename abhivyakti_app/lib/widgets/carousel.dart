@@ -80,29 +80,32 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      itemCount: (widget.isGallery ?? false)
-          ? _galleryImages.length
-          : _artImages.length,
-      itemBuilder: (context, index, realIdx) {
-        return Center(
-            child: (widget.isGallery ?? false)
-                ? _galleryImages[index]
-                : _artImages[index]);
-      },
-      options: CarouselOptions(
-        height: widget.height,
-        aspectRatio: widget.aspectRatio ?? 1,
-        viewportFraction: 0.6,
-        initialPage: 2,
-        enableInfiniteScroll: true,
-        reverse: false,
-        autoPlay: false,
-        autoPlayInterval: Duration(seconds: 3),
-        autoPlayAnimationDuration: Duration(milliseconds: 800),
-        autoPlayCurve: Curves.fastOutSlowIn,
-        enlargeCenterPage: true,
-        scrollDirection: Axis.horizontal,
+    return IgnorePointer(
+      ignoring: true,
+      child: CarouselSlider.builder(
+        itemCount: (widget.isGallery ?? false)
+            ? _galleryImages.length
+            : _artImages.length,
+        itemBuilder: (context, index, realIdx) {
+          return Center(
+              child: (widget.isGallery ?? false)
+                  ? _galleryImages[index]
+                  : _artImages[index]);
+        },
+        options: CarouselOptions(
+          height: widget.height,
+          aspectRatio: widget.aspectRatio ?? 1,
+          viewportFraction: 0.6,
+          initialPage: 2,
+          enableInfiniteScroll: true,
+          reverse: false,
+          autoPlay: true,
+          autoPlayInterval: Duration(seconds: 3),
+          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          autoPlayCurve: Curves.fastOutSlowIn,
+          enlargeCenterPage: true,
+          scrollDirection: Axis.horizontal,
+        ),
       ),
     );
   }

@@ -16,6 +16,7 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
+    double h = kSideBarWidth(context) + 20;
     return ScreenTypeLayout(
       mobile: content(
         titleStyle: kTitleMobile,
@@ -27,14 +28,14 @@ class _AboutState extends State<About> {
       tablet: content(
         titleStyle: kTitleTablet,
         bodyStyle: kBodyTablet,
-        padding: EdgeInsets.only(left: 50, right: 50, top: 25),
+        padding: EdgeInsets.only(left: h, right: h, top: 25),
         size: Size(45, 70),
         vSpace: 40,
       ),
       desktop: content(
         titleStyle: kTitle,
         bodyStyle: kBody,
-        padding: EdgeInsets.only(left: 100, right: 100, top: 50),
+        padding: EdgeInsets.only(left: h, right: h, top: 50),
         size: Size(95, 120),
         vSpace: 60,
       ),

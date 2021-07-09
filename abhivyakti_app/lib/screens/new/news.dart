@@ -50,9 +50,7 @@ class _NewsState extends State<News> {
   }) =>
       Container(
         padding: padding,
-        constraints: BoxConstraints(
-          maxHeight: displayHeight(context),
-        ),
+        height: displayHeight(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

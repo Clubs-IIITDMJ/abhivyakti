@@ -1,3 +1,4 @@
+import 'package:abhivyakti_app/core/responsive.dart';
 import 'package:flutter/material.dart';
 
 // ---------------------------------
@@ -93,3 +94,19 @@ Color kRed = Color(0XFFFF2C2C);
 Color kRed2 = Color(0XFFFD0105);
 Color kBlue = Color(0XFF5865F2);
 Color kBlue2 = Color(0XFF2D88FF);
+
+/** Paddings */
+double kSideBarWidth(context) {
+  if (displayWidth(context) <= 500) return 0;
+  return displayWidth(context) * 0.07;
+}
+
+EdgeInsets kSideBarPadding(side) => EdgeInsets.only(left: side);
+
+/** Duration */
+const kSideBarDuration = Duration(milliseconds: 250);
+
+/**bool */
+bool kIsMobile(context) => displayWidth(context) <= 500;
+
+bool kIsTablet(context) => displayWidth(context) <= 900;
