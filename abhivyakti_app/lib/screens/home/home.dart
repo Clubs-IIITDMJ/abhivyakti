@@ -71,6 +71,7 @@ class _HomeState extends State<Home> {
                               Expanded(
                                 child: AnimatedContainer(
                                   duration: Duration(milliseconds: 300),
+                                  color: Colors.white,
                                   child: Logo(),
                                 ),
                               ),
@@ -340,61 +341,126 @@ class _HomeState extends State<Home> {
   }
 }
 
-class Logo extends StatelessWidget {
+class Logo extends StatefulWidget {
   Logo({Key? key}) : super(key: key);
 
-  final Widget image1 = SvgPicture.asset(
-    'assets/svg/abhivyakti-text-1.svg',
+  @override
+  _LogoState createState() => _LogoState();
+}
+
+class _LogoState extends State<Logo> {
+  bool _tap = false;
+
+  final Widget image1 = Image.asset(
+    'assets/images/Abhivyakti.png',
     color: Color(0xFFE5E5E5),
     fit: BoxFit.contain,
   );
-  final Widget image2 = SvgPicture.asset(
-    'assets/svg/abhivyakti-text-3.svg',
+
+  final Widget image2 = Image.asset(
+    'assets/images/Abhivyakti.png',
     color: kRed,
     fit: BoxFit.contain,
   );
-  final Widget image3 = SvgPicture.asset(
-    'assets/svg/abhivyakti-text-3.svg',
+
+  final Widget image3 = Image.asset(
+    'assets/images/Abhivyakti-2.png',
+    fit: BoxFit.contain,
+  );
+  final Widget image4 = SvgPicture.asset(
+    'assets/svg/Abhivyakti-text-2.svg',
     fit: BoxFit.contain,
   );
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            bottom: -32,
-            left: 28,
-            right: -28,
-            top: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 40),
-              child: image1,
-            ),
+    return LayoutBuilder(
+      builder: (context, size) {
+        // print(size);
+        return InkWell(
+          onTap: () {
+            setState(() {
+              _tap = !_tap;
+            });
+          },
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              AnimatedPositioned(
+                duration: kduration,
+                bottom: _tap ? -32 : 0,
+                left: _tap ? 28 : 0,
+                right: _tap ? -28 : 0,
+                top: 0,
+                child: AnimatedOpacity(
+                  duration: kduration,
+                  opacity: _tap ? 1 : 0,
+                  child: Container(
+                    height: size.maxHeight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 40),
+                          child: image1,
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 40),
+                          child: Text('arts and crafts club'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: AnimatedOpacity(
+                  duration: kduration,
+                  opacity: _tap ? 1 : 0,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 40),
+                    child: image2,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: AnimatedOpacity(
+                  duration: kduration,
+                  opacity: _tap ? 0 : 1,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 40),
+                    child: image4,
+                  ),
+                ),
+              ),
+              AnimatedPositioned(
+                duration: kduration,
+                top: _tap ? -32 : 0,
+                left: _tap ? -28 : 0,
+                right: _tap ? 28 : 0,
+                bottom: 0,
+                child: AnimatedOpacity(
+                  duration: kduration,
+                  opacity: _tap ? 1 : 0,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 40),
+                    child: image3,
+                  ),
+                ),
+              ),
+            ],
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 40), child: image2),
-          ),
-          Positioned(
-            top: -32,
-            left: -28,
-            right: 28,
-            bottom: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 40),
-              child: image3,
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

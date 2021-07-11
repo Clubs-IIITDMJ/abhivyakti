@@ -101,6 +101,7 @@ class _RootState extends State<Root> with SingleTickerProviderStateMixin {
                 itemCount: _screen.length + 1,
                 itemPositionsListener: itemPositionsListener,
                 itemScrollController: itemScrollController,
+                addAutomaticKeepAlives: false,
                 itemBuilder: (context, index) {
                   if (index == 0) return Home(scrollTo: scrollTo);
                   return _screen[index - 1];

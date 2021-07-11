@@ -105,6 +105,7 @@ EdgeInsets kSideBarPadding(side) => EdgeInsets.only(left: side);
 
 /** Duration */
 const kSideBarDuration = Duration(milliseconds: 250);
+const kduration = Duration(milliseconds: 800);
 
 /**bool */
 bool kIsMobile(context) => displayWidth(context) <= 500;
