@@ -15,6 +15,7 @@ class Team extends StatefulWidget {
 class _TeamState extends State<Team> {
   @override
   Widget build(BuildContext context) {
+    double h = kSideBarWidth(context) + 20;
     return ScreenTypeLayout(
       mobile: content(
         titleStyle: kTitleMobile,
@@ -30,7 +31,7 @@ class _TeamState extends State<Team> {
         titleStyle: kTitleTablet,
         bodyStyle: kBodyTablet,
         subBodyStyle: kSubBodyTablet,
-        padding: EdgeInsets.only(left: 50, right: 50, top: 25),
+        padding: EdgeInsets.only(left: h, right: h, top: 25),
         profilePadding: EdgeInsets.symmetric(horizontal: 30),
         size: Size(45, 70),
         profileSize: Size(150, 150),
@@ -40,7 +41,7 @@ class _TeamState extends State<Team> {
         titleStyle: kTitle,
         bodyStyle: kBody,
         subBodyStyle: kSubBody,
-        padding: EdgeInsets.only(left: 100, right: 100, top: 50),
+        padding: EdgeInsets.only(left: h, right: h, top: 50),
         profilePadding: EdgeInsets.only(left: 70),
         size: Size(95, 120),
         profileSize: Size(200, 200),
@@ -59,7 +60,8 @@ class _TeamState extends State<Team> {
     TextStyle? subBodyStyle,
     double? vSpace,
   }) =>
-      Container(
+      AnimatedContainer(
+        duration: Duration(milliseconds: 250),
         padding: padding,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +70,8 @@ class _TeamState extends State<Team> {
             Row(
               children: [
                 Spacer(),
-                Container(
+                AnimatedContainer(
+                  duration: Duration(milliseconds: 250),
                   height: size!.height,
                   width: size.width,
                   child: IconsData.teamDoodle,
@@ -214,7 +217,8 @@ class _CommiteeState extends State<Commitee> {
     TextStyle? bodyStyle,
     Size? space,
   }) =>
-      Container(
+      AnimatedContainer(
+        duration: Duration(milliseconds: 250),
         padding: padding,
         child: Column(
           children: [

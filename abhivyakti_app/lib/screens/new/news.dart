@@ -48,8 +48,10 @@ class _NewsState extends State<News> {
     Size size = const Size(0, 0),
     EdgeInsets? padding,
   }) =>
-      Container(
+      AnimatedContainer(
+        duration: Duration(milliseconds: 250),
         padding: padding,
+        width: displayWidth(context),
         height: displayHeight(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,13 +74,16 @@ class _NewsState extends State<News> {
                       size: size,
                     ),
                   ),
-                  // SizedBox(width: space.width),
-                  // Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     headText('DISCORD', bodyStyle!),
-                  //     headText('ANNOUNCEMENTS', bodyStyle),
-                  //   ],
+                  // SizedBox(width: kIsMobile(context) ? 0 : space.width),
+                  // Container(
+                  //   width: kIsMobile(context) ? 0 : null,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       headText('DISCORD', bodyStyle!),
+                  //       headText('ANNOUNCEMENTS', bodyStyle),
+                  //     ],
+                  //   ),
                   // ),
                 ],
               ),
@@ -91,32 +96,20 @@ class _NewsState extends State<News> {
   }
 }
 
-class DiscordApp extends StatefulWidget {
+class DiscordApp extends StatelessWidget {
   final Size? size;
-  const DiscordApp({
+  DiscordApp({
     Key? key,
     this.size = const Size(300, 300),
   }) : super(key: key);
-
-  @override
-  _DiscordAppState createState() => _DiscordAppState();
-}
-
-class _DiscordAppState extends State<DiscordApp> {
   Widget? _iframeWidget;
 
   final IFrameElement _iframeElement = IFrameElement();
 
   @override
-  void initState() {
-    super.initState();
-
-    // <iframe src="https://discord.com/widget?id=786492053588148234&theme=dark"
-    //width="350" height="500" allowtransparency="true" frameborder="0"
-    //sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
-    _iframeElement.height = '${widget.size!.height}';
-    _iframeElement.width = '${widget.size!.width}';
+  Widget build(BuildContext context) {
+    _iframeElement.height = '${size!.height}';
+    _iframeElement.width = '${size!.width}';
 
     _iframeElement.src =
         "https://discord.com/widget?id=786492053588148234&theme=light";
@@ -136,10 +129,7 @@ class _DiscordAppState extends State<DiscordApp> {
       key: UniqueKey(),
       viewType: 'iframeElement',
     );
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Container(
       child: _iframeWidget!,
     );

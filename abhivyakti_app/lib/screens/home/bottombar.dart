@@ -18,6 +18,7 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
+    double h = kSideBarWidth(context) + 20;
     return ScreenTypeLayout(
       mobile: content(
         space: Size(15, 10),
@@ -35,7 +36,7 @@ class _BottomBarState extends State<BottomBar> {
         subBodyStyle: kSubBodyTablet,
         headingstyle: kHeadingTablet,
         subHeadingstyle: kBody0Tablet,
-        padding: EdgeInsets.only(left: 30, right: 30, top: 20),
+        padding: EdgeInsets.only(left: h, right: h, top: 20),
       ),
       desktop: content(
         space: Size(40, 20),
@@ -44,7 +45,7 @@ class _BottomBarState extends State<BottomBar> {
         subBodyStyle: kSubBody,
         headingstyle: kHeading,
         subHeadingstyle: kBody0,
-        padding: EdgeInsets.only(left: 50, right: 50, top: 20),
+        padding: EdgeInsets.only(left: h, right: h, top: 20),
       ),
     );
   }
@@ -58,7 +59,8 @@ class _BottomBarState extends State<BottomBar> {
     TextStyle? bodyStyle,
     TextStyle? subBodyStyle,
   }) =>
-      Container(
+      AnimatedContainer(
+        duration: Duration(milliseconds: 250),
         padding: padding,
         decoration: BoxDecoration(
           border: Border(
@@ -76,7 +78,8 @@ class _BottomBarState extends State<BottomBar> {
                   style: headingstyle,
                 ),
                 SizedBox(width: 20),
-                Container(
+                AnimatedContainer(
+                  duration: Duration(milliseconds: 250),
                   height: size!.height,
                   width: size.width,
                   child: IconsData.sharkDoodle,

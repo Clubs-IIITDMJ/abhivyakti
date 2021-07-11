@@ -40,19 +40,22 @@ class _RootState extends State<Root> with SingleTickerProviderStateMixin {
   }
 
   scrollTo(int index) {
-    itemScrollController.scrollTo(
-      index: index,
-      duration: Duration(seconds: 1 * index),
-      curve: Curves.easeIn,
-    );
+    if (index == 7 || index == 4)
+      itemScrollController.jumpTo(index: index);
+    else
+      itemScrollController.scrollTo(
+        index: index,
+        duration: Duration(seconds: 1 * index),
+        curve: Curves.easeIn,
+      );
   }
 
   var _screen = [
     About(),
-    // Gallery(),
-    // Art(),
-    // News(),
-    // Team(),
+    Gallery(),
+    Art(),
+    News(),
+    Team(),
     Commitee(),
     BottomBar(),
   ];
@@ -63,7 +66,7 @@ class _RootState extends State<Root> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     Size iconSize = kIsMobile(context)
         ? Size.zero
-        : Size.square(kSideBarWidth(context) * 0.6);
+        : Size(kSideBarWidth(context) * 0.8, displayHeight(context) * 0.05);
     return Scaffold(
       body: AnimatedBuilder(
         animation: _animation!,

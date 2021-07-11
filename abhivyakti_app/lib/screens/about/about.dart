@@ -49,7 +49,8 @@ class _AboutState extends State<About> {
     Size? size,
     double? vSpace,
   }) =>
-      Container(
+      AnimatedContainer(
+        duration: Duration(milliseconds: 250),
         alignment: Alignment.center,
         padding: padding,
         child: Column(
@@ -63,10 +64,14 @@ class _AboutState extends State<About> {
                   kAboutTitle,
                   style: titleStyle,
                 ),
-                Container(
-                  height: size!.height,
-                  width: size.width,
-                  child: IconsData.aboutDoodle,
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 250),
+                    height: size!.height,
+                    width: size.width,
+                    child: IconsData.aboutDoodle,
+                  ),
                 ),
               ],
             ),

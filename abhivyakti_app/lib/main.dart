@@ -12,13 +12,10 @@ void main() async {
     ),
     precachePicture(
       ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-2.svg'),
+          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-3.svg'),
       null,
     ),
-    // precachePicture(
-    //   ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/images/logo1.png'),
-    //   null,
-    // ),
+
     precachePicture(
       ExactAssetPicture(
           SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti.svg'),
@@ -73,10 +70,10 @@ void main() async {
       ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo-big.svg'),
       null,
     ),
-    // precachePicture(
-    //   ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo2.svg'),
-    //   null,
-    // ),
+    precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/logo1.svg'),
+      null,
+    ),
     precachePicture(
       ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/svg/roll.svg'),
       null,

@@ -45,33 +45,38 @@ class _HomeState extends State<Home> {
   }) {
     bool isMobile = kIsMobile(context);
     return AnimatedContainer(
-      duration: kSideBarDuration,
+      duration: Duration(milliseconds: 300),
       constraints: BoxConstraints(
           maxHeight: displayHeight(context) * (isMobile ? 0.6 : 1)),
       child: AnimatedPadding(
         duration: kSideBarDuration,
         padding: kSideBarPadding(kSideBarWidth(context)),
-        child: Container(
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 300),
           height: displayHeight(context),
           child: Column(
             children: [
               Expanded(
                 flex: 7,
-                child: Container(
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
                   child: Row(
                     children: [
                       Expanded(
                         flex: 8,
-                        child: Container(
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 300),
                           child: Column(
                             children: [
                               Expanded(
-                                child: Container(
+                                child: AnimatedContainer(
+                                  duration: Duration(milliseconds: 300),
                                   child: Logo(),
                                 ),
                               ),
                               Expanded(
-                                child: Container(
+                                child: AnimatedContainer(
+                                  duration: Duration(milliseconds: 300),
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -80,7 +85,9 @@ class _HomeState extends State<Home> {
                                           onTap: () {
                                             widget.scrollTo!(3);
                                           },
-                                          child: Container(
+                                          child: AnimatedContainer(
+                                            duration:
+                                                Duration(milliseconds: 300),
                                             color: Colors.black,
                                             child: Column(
                                               children: [
@@ -94,7 +101,9 @@ class _HomeState extends State<Home> {
                                                   ),
                                                 ),
                                                 Expanded(
-                                                  child: Container(
+                                                  child: AnimatedContainer(
+                                                    duration: Duration(
+                                                        milliseconds: 300),
                                                     alignment:
                                                         Alignment.topCenter,
                                                     child: Text(
@@ -114,10 +123,12 @@ class _HomeState extends State<Home> {
                                       Expanded(
                                         flex: 6,
                                         child: InkWell(
-                                          // onTap: () {
-                                          //   widget.scrollTo!(4);
-                                          // },
-                                          child: Container(
+                                          onTap: () {
+                                            widget.scrollTo!(4);
+                                          },
+                                          child: AnimatedContainer(
+                                            duration:
+                                                Duration(milliseconds: 300),
                                             decoration: BoxDecoration(
                                               border: Border(
                                                 top: BorderSide(
@@ -174,7 +185,8 @@ class _HomeState extends State<Home> {
                           onTap: () {
                             widget.scrollTo!(1);
                           },
-                          child: Container(
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 300),
                             color: kRed,
                             child: Stack(
                               children: [
@@ -220,7 +232,8 @@ class _HomeState extends State<Home> {
               ),
               Expanded(
                 flex: 3,
-                child: Container(
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -228,16 +241,18 @@ class _HomeState extends State<Home> {
                         flex: 3,
                         child: InkWell(
                           onTap: () {
-                            widget.scrollTo!(6);
+                            widget.scrollTo!(7);
                           },
-                          child: Container(
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 300),
                             color: kRed,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SizedBox(width: size.width),
                                 Flexible(
-                                  child: Container(
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
                                     alignment: Alignment.centerLeft,
                                     child: Column(
                                       mainAxisAlignment:
@@ -284,7 +299,8 @@ class _HomeState extends State<Home> {
                           onTap: () {
                             widget.scrollTo!(2);
                           },
-                          child: Container(
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 300),
                             color: Colors.black,
                             child: Stack(
                               alignment: Alignment.center,
@@ -344,7 +360,8 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
       child: Stack(
         alignment: Alignment.center,
         children: [

@@ -43,7 +43,8 @@ class _GalleryState extends State<Gallery> {
     EdgeInsets? padding,
     double? vSpace,
   }) =>
-      Container(
+      AnimatedContainer(
+        duration: Duration(milliseconds: 250),
         constraints: BoxConstraints(
           minWidth: 360,
           minHeight: 300,
@@ -75,8 +76,7 @@ class _GalleryState extends State<Gallery> {
             Container(
               child: Carousel(
                 isGallery: true,
-                // height: type == 0 ? 380 : 150,
-                height: 150,
+                height: displayHeight(context) * 0.4,
                 aspectRatio: 2,
               ),
             ),

@@ -20,13 +20,14 @@ class SideBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool shouldHide = hide!;
-    Size iconSize =
-        kIsMobile(context) ? Size.zero : Size.square(size!.width * 0.6);
+    Size iconSize = kIsMobile(context)
+        ? Size.zero
+        : Size(size!.width * 0.8, size!.height * 0.05);
     double iconSpacing = kIsMobile(context)
         ? 0
         : kIsTablet(context)
             ? 40
-            : 70;
+            : 60;
     return AnimatedContainer(
       duration: kSideBarDuration,
       width: shouldHide ? 0 : size!.width,
