@@ -7,17 +7,6 @@ void main() async {
   Future.wait([
     precachePicture(
       ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-1.svg'),
-      null,
-    ),
-    precachePicture(
-      ExactAssetPicture(
-          SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti-text-3.svg'),
-      null,
-    ),
-
-    precachePicture(
-      ExactAssetPicture(
           SvgPicture.svgStringDecoder, 'assets/svg/abhivyakti.svg'),
       null,
     ),

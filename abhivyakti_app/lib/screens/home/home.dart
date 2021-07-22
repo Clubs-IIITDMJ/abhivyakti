@@ -368,7 +368,7 @@ class _LogoState extends State<Logo> {
     fit: BoxFit.contain,
   );
   final Widget image4 = SvgPicture.asset(
-    'assets/svg/Abhivyakti-text-2.svg',
+    'assets/svg/abhivyakti-text-2.svg',
     fit: BoxFit.contain,
   );
 
@@ -407,7 +407,10 @@ class _LogoState extends State<Logo> {
                         ),
                         Container(
                           margin: EdgeInsets.symmetric(horizontal: 40),
-                          child: Text('arts and crafts club'),
+                          child: Text(
+                            'arts and crafts club',
+                            style: kSubBody,
+                          ),
                         ),
                       ],
                     ),
